@@ -14,9 +14,11 @@ I sistemi di raccomandazione portano dei vantaggi sia agli utenti, mostrando inf
 
 ## Sistemi di reputazione
 
-
+I *Sistemi di Reputazione* generano punteggi basati su feedback o valutazioni di membri di una community.
 
 ## Combinazione tra  sistemi di raccomandazione e sistemi di reputazione
+
+I sistemi di raccomandazione e i sistemi di reputazione sono simili in quanto entrambi raccolgono dati
 
 # Soluzione di Josang e co.
 
