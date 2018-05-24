@@ -8,17 +8,23 @@ Per tale motivo sono stati introdotti i sistemi di raccomendazione. I *Sistemi d
 
 I sistemi di raccomandazione portano dei vantaggi sia agli utenti, mostrando informazioni di interesse, sia per i fornitori di servizi perché riducono i costi di transazione per la ricerca, selezione di articoli in ambiente di shopping online. Essi migliorano le entrate in quanto sono mezzi efficaci per vendere più prodotti.
 
+Lo scopo dei sistemi di raccomandazione è principalmente di generare suggerimenti su risorse di cui un utente, a priori non ne è a conoscenza ma probabilmente potrebbe essere interessato a esse.
+
 (Direi che tralasciamo come funzionano?)
 
 
 
 ## Sistemi di reputazione
 
-I *Sistemi di Reputazione* generano punteggi basati su feedback o valutazioni di membri di una community.
+I *Sistemi di Reputazione* sono un componente essenziale di varie piattaforme online, come ad esempio siti di e-commerce o sistemi di condivisione di file. Questi sistemi incoraggiano gli utenti a fornire un feedback su esperienze passate. Nascono perché, prima di essi, gli utenti che interagivano con nuovi siti web non avevano alcuna informazione.
+
+Lo scopo dei sistemi di reputazione è quello di fornire consigli su risorse di cui l'utente è già a conoscenza e interessato. 
 
 ## Combinazione tra  sistemi di raccomandazione e sistemi di reputazione
 
-I sistemi di raccomandazione e i sistemi di reputazione sono simili in quanto entrambi raccolgono dati
+Sposterei la sezione introduzione di Josang qui, ha più senso.
+
+Nella sezione 2 riassumeremo una soluzione studiata ma con un difetto. Nella sezione 3 presenteremo una nostra soluzione utilizzano i vincoli soft.
 
 # Soluzione di Josang e co.
 
@@ -38,7 +44,7 @@ La soluzione del Professor Josang e dei suoi colleghi consiste nel fondere i pun
 
 ## Opinioni soggettive
 
-In questa sezione viene introdotta, prima di tutto, la notazione e la formazione delle opinioni soggettive usate per fondere gusto e fiducia. Poi viene descritto un metodo per mappare dei punteggi multinomiali in opinioni binomiali. I punteggi multinomiali sono la forma di feedback restituita dai sistemi di reputazione e dai sistemi di raccomandazione.
+In questa sezione viene introdotta la notazione e la formazione delle opinioni soggettive usate per fondere gusto e fiducia. Successivamente viene descritto un metodo per mappare dei punteggi multinomiali in opinioni binomiali. I punteggi multinomiali sono la forma di feedback restituita dai sistemi di reputazione e dai sistemi di raccomandazione.
 
 ### Formazione e rappresentazione
 
@@ -248,3 +254,5 @@ Quindi in molti casi la soluzione proposta dallo studio di Josang e la nostra ri
 # Bibliografia
 
 https://www.sciencedirect.com/science/article/pii/S1110866515000341
+
+https://link.springer.com/article/10.1007/s12599-017-0493-1
