@@ -8,6 +8,82 @@ Unione dei due
 
 # Soluzione di Josang e co.
 
+## Introduzione
+
+Come detto precedentemente i sistemi di reputazione e raccomandazione sono basati su principi differenti ma hanno entrambi lo stesso scopo: supportare l'utente fornendo delle informazioni per agevolare le sue decisioni. Brevemente, i compiti dei due sistemi sono i seguenti:
+
+- sistemi di raccomandazione: suggeriscono all'utente risorse che non conosce ma alle quali può essere interessato. I punteggi di raccomandazione sono calcolati basandosi su informazioni fornite da altri utenti per oggetti simili;
+- sistemi di reputazione: forniscono alla comunità informazioni riguardanti risorse che l'utente conosce già. I punteggi di reputazione indicano quanto un oggetto è piaciuto ad un utente.
+
+Per fornire delle raccomandazioni più accurate è possibile integrare i due sistemi. L'integrazione risulta complessa a causa della diversità dei sistemi che hanno forme diverse di feedback. Anche i risultati hanno forme diverse:
+
+- un voto da 1 a 5 per i sistemi di reputazione;
+- una tupla (d1, ... , dk), dove di è una diversa caratteristica della risorsa d, per i sistemi di raccomandazione.
+
+La soluzione del Professor Josang e dei suoi colleghi consiste nel fondere i punteggi di reputazione e di raccomandazione tramite un operatore chiamato CasMin (Cascading Minimum Common Belief Fusion). Il problema principale è che i punteggi di reputazione sono potenzialmente diversi dai punteggi di raccomandazione, ossia sono eterogenei e quindi impossibili da fondere senza prima essere manipolati. Per applicare l'operatore CasMin a tali punteggi bisogna renderli prima di tutto omogenei. Per rendere omogenei i punteggi di reputazione e i punteggi di raccomandazione, essi devono essere mappati in opinioni soggettive. Dopo essere stati mappati in opinioni soggettive, i punteggi possono essere combinati con l'operatore CasMin che restituirà un valore alto solo se entrambi i punteggi, di reputazione e di raccomandazione rispettivamente, saranno alti. Una risorsa verrà suggerita all'utente solo se è stata raccomandata con alta confidenza e se ha un alto punteggio di reputazione. La raccomandazione diviene più accurata rispetto ad il solo sistema di raccomandazione che può raccomandare oggetti con bassa reputazione. Infine i consigli distribuiti agli utenti avranno una qualità migliore.
+
+## Opinioni soggettive
+
+In questa sezione introduremo, prima di tutto, la notazione e la formazione delle opinioni soggettive usate per fondere gusto e fiducia. Poi descriveremo un metodo per mappare dei punteggi multinomiali in opinioni binomiali. I punteggi multinomiali sono la forma di feedback restituita dai sistemi di reputazione e dai sistemi di raccomandazione.
+
+### Formazione e rappresentazione
+
+Un'opinione soggettiva esprime la credenza (belief) degli stati di uno spazio degli stati chiamato "frame". Uno stato in un frame può essere considerato come una dichiarazione, quindi un frame contiene un insieme di dichiarazioni. Indichiamo con X = {x1, x2, ... , xk} un frame di cardinalità k, dove xi (1<=i<=k) rappresenta uno specifico stato. Un'opinione distribuisce la massa di credenze sul ridotto powerset del frame, indicato con R(X).
+
+Un'opinione è una funzione composta che consiste in un vettore di belief **b**, un parametro di incertezza **u** e un vettore di base rate **a**, che prende valori nell'intervallo [0,1] e che soddisfa i seguenti requisiti di addittività:
+
+- req 1
+- req 2
+
+L'opinione di un utente A sul frame X è denotata come omegaAx = (bX,uX,aX), dove **b**X è un vettore di belief sugli stati di R(X), uX è la massa di incertezza complementare, e aX è un vettore di base rate su X, tutti visti dal punto di vista del proprietario delle belief A.
+
+### Tipologie di opinioni soggettive
+
+Vengono presentate due diverse tipologie di opinioni soggettive:
+
+- Opinioni multinomiali: il vettore di belief **b**X viene applicato solamente agli elementi Xi appartenenti a X, non in R(X);
+- Opinioni binomiali: vengono applicate ai frame binari e hanno una rappresentazione speciale. Indichiamo con X = {x,xNeg} un frame binario. Un'opinione binomiale sulla verità dello stato x è la quadrupla ordinata omegaX=(b,d,u,a) dove:
+  - b(belief): è la massa di credenze in supporto che x sia vero;
+  - d(disbelief): è la massa di credenze in supporto che x sia falso;
+  - u(incertezza): è l'incertezza sulla probabilità di x;
+  - a(base rate): è la probabilità preventiva non informativa di x.
+
+In caso di opinioni binomiali l'equazione 2 è espressa come... mettere formula...
+
+### Conversione di opinioni multinomiali in opinioni binomiali
+
+Le opinioni multinomiali sono una generalizzazione delle opinioni binomiali e in certi casi può essere necessario proiettare le opinioni multinomiali in opinioni binomiali. Per esempio, un sistema di reputazione dove i punteggi sono dati nella forma 1-5 stelle può rappresentare un punteggio di reputazione come un'opinione multinomiale su un frame con 5 stati, ognuno dei quali rappresenta uno specifico numero di stelle. In questo caso, un punteggio di reputazione rappresentato come un'opinione multinomiale può essere proiettato in un'opinione binomiale nel modo seguente. 
+
+Indichiamo con X={x1,...,xk} un frame dove i k stati rappresentano un livello crescente di punteggio. Indichiamo con Y={y,yNeg} un frame frame binario dove y e yNeg indicano un'alta qualità e una bassa qualità di una risosrsa, rispettivamente. Assumiamo che un punteggio di reputazione o un valore di raccomandazione siano espressi tramite l'opinione multinomiale omegaX() sul frame X, e che un'opinione binomiale omegaY=() è richiesta sul frame binario Y. Allora la proiezione dall'opinione multinomiale omegaX su X nella opinione binomiale omegaY su Y è definita da: mettere sistema...
+
+Il vantaggio di proiettare opinioni multinomiali in opinioni binomiali è la flessibilità di analizzare i punteggi di reputazione e i valori di raccomandazione indipendentemente dalla cardinalità del frame.
+
+## Determinazione delle opinioni
+
+### Opinioni derivate dai sistemi di reputazione
+
+### Opinioni derivate dai sistemi di raccomandazione
+
+## Combinazione dei valori di raccomandazione e reputazione
+
+### Operatore CasMin per opinioni multinomiali
+
+#### Esempio
+
+
+
+### Operatore CasMin per opinioni binomiali
+
+#### Esempio
+
+## Conclusioni
+
+
+
+
+
+
+
 # Una nostra alternativa
 
 ##Introduzione
