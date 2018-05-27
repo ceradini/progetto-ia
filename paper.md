@@ -132,7 +132,7 @@ Questo operatore gode della proprietà conservativa. Questa proprietà è utile 
 
 ### Operatore CasMin con opinioni multinomiali
 
-Indichiamo con X={x1,...,xk} un frame ordinato di cardinalità k, dove xk è il livello di punteggio più alto ottenuto da un sistema di raccomandazione o reputazione. Assumiamo che ci siano due opinioni omegaAx e omegaBx sul frame X dove A e B indicano due diversi proprietari di credenze, ossia due argomenti. Le due opinioni possono essere matematicamente combinate usando l'operatore CasMin denotato dalla seguente espressione...
+Indichiamo con X={x~1~ ,...,x~k~} un frame ordinato di cardinalità k, dove xk è il livello di punteggio più alto ottenuto da un sistema di raccomandazione o reputazione. Assumiamo che ci siano due opinioni omegaAx e omegaBx sul frame X dove A e B indicano due diversi proprietari di credenze, ossia due argomenti. Le due opinioni possono essere matematicamente combinate usando l'operatore CasMin denotato dalla seguente espressione...
 
 La soluzione proposta da Josang richiede opinioni multinomiali. Prima di tutto agisce sulla credenza del livello più alto xk e per finire agisce sulla credenza del livello più basso x1. Ad ogni livello esegue le operazioni descritte nella sezione precedente. La linea 2 assicura che la credenza dell'argomento A sia sempre migliore della credenza dell'argomento B, facendo un'operazione di swap se necessario. Al termine del ciclo la nuova opinione dell'utente A rappresenta il risultato combinato che verrà restituito.
 
@@ -172,12 +172,14 @@ Nell'esempio illustrato si considera il caso di dover fornire consigli sugli hot
 
 Il gruppo presenta una versione rivista rispetto a quella di Josang. La versione proposta richiede opinioni binomiali. Prima di utilizzare CasMin bisogna ottenere le opinioni multinomiali a partire dai punteggi di reputazione (riferimento a equazione). Queste devono essere poi mappate in opinioni binomiali (riferimento equazione). Successivamente si possono derivare le opinioni binomiali dai sistemi di raccomandazione che, nel caso proposto, utilizzano un metodo Collaborative Filtering basato sull'utente (riferimento equazione). Dopo aver ottenuto le due opinioni binomiali si può utilizzare l'algoritmo di seguito proposto per combinare i risultati. L'algoritmo restituisce solamente il vettore di belief **b** del risultato combinato. Infatti è il vettore di belief il dato interessante che determina la qualità della raccomandazione finale. Un vettore di belief alto nel CasMin indica una buona raccomandazione (raccomandazione e reputazione entrambi alti), mentre un valore basso indica una cattiva raccomandazione, ossia l'oggetto non verrà consigliato all'utente.
 
+
+
 #### Pseudocodice
 
 ```
 IF bAx(xi)<=bBx(xi) THEN {Swap(omegaAx,omegaBx);}
 IF uBx>(bAx(xi) - bBx(xi)) THEN {
-     uBx=uBx - (bAx(xi) - bBx(xi));
+     uBx=uBx - (b^A^~x~(xi) - bBx(xi));
      bBx(xi) = bAx(xi);
 } ELSE {
     bBx(xi)=bBx(xi) + uBx;
