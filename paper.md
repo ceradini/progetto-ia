@@ -158,7 +158,15 @@ CasMin=omegaAx;
 
 #### Esempio
 
-Da riportare la tabellona
+| Hotel   | Rep. Ratings                                                 | Multinomial Rep. Score                                       | Binomial Rep. Score                  | Rec. Value                        | CasMin Advice                        |
+| ------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------ | --------------------------------- | ------------------------------------ |
+| Hotel 1 | r(x5) = 50<br />r(x4) = 10<br />r(x3) = 10<br />r(x2) = 0<br />r(x1) = 5 | bX5 = 0.65<br />bX4 = 0.13<br />bX3 = 0.13<br />bX2 = 0.00<br />bX1 = 0.06<br />uX = 0.03 | b = 0.81<br />d = 0.16<br />u = 0.03 | b = 0.1<br />d = 0.7<br />u = 0.2 | b = 0.30<br />d = 0.70<br />u = 0.00 |
+| Hotel 2 | r(x5) = 5<br />r(x4) = 0<br />r(x3) = 10<br />r(x2) = 10<br />r(x1) = 50 | bX5 = 0.06<br />bX4 = 0.00<br />bX3 = 0.13<br />bX2 = 0.13<br />bX1 = 0.65<br />uX = 0.03 | b = 0.16<br />d = 0.81<br />u = 0.03 | b = 0.7<br />d = 0.1<br />u = 0.2 | b = 0.19<br />d = 0.61<br />u = 0.20 |
+| Hotel 3 | r(x5) = 50<br />r(x4) = 10<br />r(x3) = 10<br />r(x2) = 0<br />r(x1) = 5 | bX5 = 0.65<br />bX4 = 0.13<br />bX3 = 0.13<br />bX2 = 0.00<br />bX1 = 0.06<br />uX = 0.03 | b = 0.81<br />d = 0.16<br />u = 0.03 | b = 0.7<br />d = 0.1<br />u = 0.2 | b = 0.81<br />d = 0.19<br />u = 0.00 |
+
+
+
+Nell'esempio illustrato si considera il caso di dover fornire consigli sugli hotel di un sito web. Si assume di avere un sistema di raccomandazione che tracci le preferenze degli utenti, e un sistema di reputazione che permetta agli utenti di valutare gli hotel. Con il metodo descritto in sezione §... il sistema di reputazione può produrre punteggi espressi come opinioni multinomiali. Con il metodo descritto in sezione §... le opinioni multinomiali possono essere trasformate in opinioni binomiali. I valori di raccomandazione per ogni hotel e ogni utente sono espressi come opinioni binomiali usando le equazioni descritte in sezione §... Il sistema di raccomandazione identifica una lista di hotel basandosi sul punteggio dato dall'utente e da altri viaggiatori. Esso può prevedere che all'utente piacerà un hotel perché altri utenti con gusti simili sono stati soddisfatti dell'hotel. Invece, il sistema di reputazione produce punteggi disponibili a tutta la comunità per ogni hotel. L'operatore CasMin produce risultati conservativi in modo che un hotel debba avere simultaneamente alti valori di raccomandazione e alti punteggi di reputazione. Nella tabella è mostrata la combinazione di due opinioni multinomiali, una per il sistema di raccomandazione e una per il sistema di reputazione, utilizzando l'algoritmo sopra descritto. Vengono illustrati i risultati di analisi di tre hotel differenti sul sito web. Nei casi dell'hotel 1 e l'hotel 2 dove i valori di raccomandazione e i punteggi di reputazione sono in conflitto, il consiglio restituito dal CasMin ha un belief basso. L'unico risultato buono è per l'hotel 3 dove entrambi i sistemi hanno prodotto punteggi positivi e la combinazione ha prodotto un buon valore della belief del CasMin.
 
 ### Operatore CasMin con opinioni binomiali
 
