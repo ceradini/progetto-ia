@@ -3,6 +3,9 @@
 \usepackage{graphicx}
 \usepackage{longtable}
 \usepackage{booktabs}
+\usepackage{algpseudocode}
+\usepackage[utf8]{inputenc}
+\usepackage{fixltx2e}
 \usepackage{listings}
 \usepackage{lipsum}% http://ctan.org/pkg/lipsum
 \author{Alberto Bezzon, Tommaso Carraro, Matteo Ceradini} \title{Combinare sistemi di reputazione e di raccomandazione per ottenere consigli migliori online} \date{\today}
@@ -100,7 +103,7 @@
 		\item
 		un voto da 1 a 5 per i sistemi di reputazione;
 		\item
-		una tupla (d1, ... , dk), dove di è una diversa caratteristica della
+		una tupla $(d\textsubscript{1}, ... , d\textsubscript{k})$, dove di è una diversa caratteristica della
 		risorsa d, per i sistemi di raccomandazione.
 	\end{itemize}
 	
@@ -136,16 +139,16 @@
 		\subsubsection{Formazione e rappresentazione}\label{header-n50}}
 	
 	Un'opinione soggettiva esprime la credenza (belief) degli stati di uno
-	spazio degli stati chiamato "frame". Uno stato in un frame può essere
+	spazio degli stati chiamato ``frame". Uno stato in un frame può essere
 	considerato come una dichiarazione, quindi un frame contiene un insieme
-	di dichiarazioni. Indichiamo con X = \{x1, x2, ... , xk\} un frame di
-	cardinalità k, dove xi (1\textless{}=i\textless{}=k) rappresenta uno
+	di dichiarazioni. Indichiamo con $X = \{x\textsubscript{1}, x\textsubscript{2}, ... , x\textsubscript{k}\}$ un frame di
+	cardinalità $k$, dove $x\textsubscript{i} (1\le i \le k)$ rappresenta uno
 	specifico stato. Un'opinione distribuisce la massa di credenze sul
-	ridotto powerset del frame, indicato con R(X).
+	ridotto powerset del frame, indicato con $R(X)$.
 	
 	Un'opinione è una funzione composta che consiste in un vettore di belief
 	\textbf{b}, un parametro di incertezza \textbf{u} e un vettore di base
-	rate \textbf{a}, che prende valori nell'intervallo {[}0,1{]} e che
+	rate \textbf{a}, che prende valori nell'intervallo ${[}0,1{]}$ e che
 	soddisfa i seguenti requisiti di additività:
 	
 	\begin{itemize}
@@ -155,10 +158,10 @@
 		req 2
 	\end{itemize}
 	
-	L'opinione di un utente A sul frame X è denotata come omegaAx =
-	(bX,uX,aX), dove \textbf{b}X è un vettore di belief sugli stati di R(X),
-	uX è la massa di incertezza complementare, e aX è un vettore di base
-	rate su X, tutti visti dal punto di vista del proprietario delle belief
+	L'opinione di un utente A sul frame $X$ è denotata come $\omega \textsuperscript{A}\textsubscript{X} =
+	(b\textsubscript{X},u\textsubscript{X},a\textsubscript{X})$, dove $b\textsubscript{X}$ è un vettore di belief sugli stati di $R(X)$,
+	$u\textsubscript{X}$ è la massa di incertezza complementare, e $a\textsubscript{X}$ è un vettore di base
+	rate su $X$, tutti visti dal punto di vista del proprietario delle belief
 	A.
 	
 	\hypertarget{header-n64}{%
@@ -168,23 +171,23 @@
 	
 	\begin{itemize}
 		\item
-		Opinioni multinomiali: il vettore di belief \textbf{b}X viene
-		applicato solamente agli elementi Xi appartenenti a X, non in R(X);
+		Opinioni multinomiali: il vettore di belief $b\textsubscript{X}$ viene
+		applicato solamente agli elementi $x\textsubscript{i}$ appartenenti a $X$, e non in $R(X)$;
 		\item
 		Opinioni binomiali: vengono applicate ai frame binari e hanno una
-		rappresentazione speciale. Indichiamo con X = \{x,xNeg\} un frame
-		binario. Un'opinione binomiale sulla verità dello stato x è la
-		quadrupla ordinata omegaX=(b,d,u,a) dove:
+		rappresentazione speciale. Indichiamo con $X = \{x,\overline{x}\}$ un frame
+		binario. Un'opinione binomiale sulla verità dello stato $x$ è la
+		quadrupla ordinata $\omega\textsubscript{X}=(b,d,u,a)$ dove:
 		
 		\begin{itemize}
 			\item
-			b(belief): è la massa di credenze in supporto che x sia vero;
+			$b$(belief): è la massa di credenze in supporto che $x$ sia vero;
 			\item
-			d(disbelief): è la massa di credenze in supporto che x sia falso;
+			$d$(disbelief): è la massa di credenze in supporto che $x$ sia falso;
 			\item
-			u(incertezza): è l'incertezza sulla probabilità di x;
+			$u$(incertezza): è l'incertezza sulla probabilità di $x$;
 			\item
-			a(base rate): è la probabilità preventiva non informativa di x.
+			$a$(base rate): è la probabilità preventiva non informativa di $x$.
 		\end{itemize}
 	\end{itemize}
 	
@@ -205,15 +208,15 @@
 	rappresentato come un'opinione multinomiale può essere proiettato in
 	un'opinione binomiale nel modo seguente.
 	
-	Indichiamo con X=\{x1,...,xk\} un frame dove i k stati rappresentano un
-	livello crescente di punteggio. Indichiamo con Y=\{y,yNeg\} un frame
-	frame binario dove y e yNeg indicano un'alta qualità e una bassa qualità
-	di una risosrsa, rispettivamente. Assumiamo che un punteggio di
+	Indichiamo con $X=\{x\textsubscript{1},...,x\textsubscript{k}\}$ un frame dove i $k$ stati rappresentano un
+	livello crescente di punteggio. Indichiamo con $Y=\{y,\overline{y}\}$ un frame
+	frame binario dove $y$ e $\overline{y}$ indicano un'alta qualità e una bassa qualità
+	di una risorsa, rispettivamente. Assumiamo che un punteggio di
 	reputazione o un valore di raccomandazione siano espressi tramite
-	l'opinione multinomiale omegaX() sul frame X, e che un'opinione
-	binomiale omegaY=() è richiesta sul frame binario Y. Allora la
-	proiezione dall'opinione multinomiale omegaX su X nella opinione
-	binomiale omegaY su Y è definita da: mettere sistema...
+	l'opinione multinomiale $\omega\textsubscript{X}=(b\textsubscript{X},u\textsubscript{X},a\textsubscript{X})$ sul frame $X$, e che un'opinione
+	binomiale $\omega\textsubscript{y}=(b\textsubscript{y},d\textsubscript{y},u\textsubscript{y},a\textsubscript{y})$ è richiesta sul frame binario $Y$. Allora la
+	proiezione dall'opinione multinomiale $\omega\textsubscript{X}$ su $X$ nella opinione
+	binomiale $\omega\textsubscript{y}$ su $Y$ è definita da: mettere sistema...
 	
 	Il vantaggio di proiettare opinioni multinomiali in opinioni binomiali è
 	la flessibilità di analizzare i punteggi di reputazione e i valori di
@@ -237,7 +240,7 @@
 	qualità totale di uno specifico servizio o bene. Ogni aspetto può essere
 	valutato con uno specifico livello di qualità, ad esempio da 1 a 5
 	stelle. È possibile che per un aspetto possano essere assegnati solo due
-	possibili livelli di qualità, ad esempio "pollice in su" e "pollice in
+	possibili livelli di qualità, ad esempio ``pollice in su" e ``pollice in
 	giù". In quest'ultimo caso i livelli indicano una buona qualità o una
 	cattiva qualità rispettivamente.
 	
@@ -245,14 +248,14 @@
 	valutazioni. Il frame per ogni aspetto è composto dall'insieme di
 	livelli di punteggio discreti che possono essere assegnati all'aspetto,
 	quindi nel caso in cui per un aspetto si possa assegnare una valutazione
-	da 1 a 5 stelle, il frame corrispondente avrà 5 stati. Indichiamo con X
-	il frame di cardinalità k, con r(xi) il numero di punteggi assegnati del
-	tipo xi, e con omegaX =() un'opinione multinomiale su X. Più punteggi
-	vengono raccolti e minore sarà l'incertezza. L'opinione omegaX può
-	essere determinata dai punteggi r(xi) tramite la seguente equazione...
-	Inserire equazione in LaTeX o come immagine...
+	da 1 a 5 stelle, il frame corrispondente avrà 5 stati. Indichiamo con $X$
+	il frame di cardinalità $k$, con $r(x\textsubscript{i})$ il numero di punteggi assegnati del
+	tipo $x\textsubscript{i}$, e con $\omega\textsubscript{X} =(b\textsubscript{X},u,a\textsubscript{X})$ un'opinione multinomiale su $X$. Più punteggi
+	vengono raccolti e minore sarà l'incertezza. L'opinione $\omega\textsubscript{X}$ può
+	essere determinata dai punteggi $r(x\textsubscript{i})$ tramite la seguente equazione...
+	Inserire equazione in \LaTeX{} o come immagine...
 	
-	Nell'equazione W = 2 è il peso precedente non informativo con valore di
+	Nell'equazione $W = 2$ è il peso precedente non informativo con valore di
 	default imposto dal requisito di avere una funzione di densità di
 	probabilità uniforme su frame binari.
 	
@@ -263,7 +266,7 @@
 	frame è binario e quindi le opinioni derivate sono binomiali. I punteggi
 	di reputazione espressi come opinioni multinomiali possono essere
 	mappati in opinioni binomiali assumendo che ogni livello di punteggio
-	corrisponde ad un valore compreso nell'intervallo {[}0,1{]}.
+	corrisponde ad un valore compreso nell'intervallo ${[}0,1{]}$.
 	
 	\hypertarget{header-n108}{%
 		\subsubsection{Opinioni derivate dai sistemi di
@@ -273,27 +276,27 @@
 	metodo CF (Collaborative filtering) basato sull'utente. Il compito dei
 	metodi CF è di predire la preferenza di una data risorsa per un utente
 	attivo, basandosi sulla storia dell'utente stesso e degli altri
-	partecipanti della comunità. Vengono introdotti i simboli s,v per gli
-	utenti e i,j per gli oggetti. Indichiamo con Rv,i il punteggio dato da
-	un utente v all'oggetto i, e con Iv l'insieme degli oggetti che l'utente
-	v ha precedentemente votato. Il punteggio medio dell'utente v è dato
+	partecipanti della comunità. Vengono introdotti i simboli $s,v$ per gli
+	utenti e $i,j$ per gli oggetti. Indichiamo con $R\textsubscript{v,i}$ il punteggio dato da
+	un utente $v$ all'oggetto $i$, e con $I\textsubscript{v}$ l'insieme degli oggetti che l'utente
+	$v$ ha precedentemente votato. Il punteggio medio dell'utente $v$ è dato
 	dalla seguente formula...
 	
-	Indichiamo con Ns,j il vicinato di un utente attivo s vincolato
-	dall'aver votato l'oggetto j. Quindi Ns,j è l'insieme di utenti che
-	hanno votato gli stessi (o alcuni) oggetti che anche s ha votato e che
-	hanno votato anche lo specifico oggetto j. Generalmente, solo i migliori
-	K utenti più simili a s vengono selezionati per far parte del vicinato.
-	La predizione Ps,j per l'utente s sull'oggetto j è data dalla seguente
+	Indichiamo con $N\textsubscript{s,j}$ il vicinato di un utente attivo $s$ vincolato
+	dall'aver votato l'oggetto $j$. Quindi $N\textsubscript{s,j}$ è l'insieme di utenti che
+	hanno votato gli stessi (o alcuni) oggetti che anche $s$ ha votato e che
+	hanno votato anche lo specifico oggetto $j$. Generalmente, solo i migliori
+	$K$ utenti più simili a $s$ vengono selezionati per far parte del vicinato.
+	La predizione $P\textsubscript{s,j}$ per l'utente $s$ sull'oggetto $j$ è data dalla seguente
 	formula...
 	
-	Dove k è un fattore di normalizzazione e w(s,v) rappresenta la
-	somiglianza tra gli utenti s e v. Ci sono diversi metodi per calcolare
+	Dove $k$ è un fattore di normalizzazione e $w(s,v)$ rappresenta la
+	somiglianza tra gli utenti $s$ e $v$. Ci sono diversi metodi per calcolare
 	la somiglianza tra gli utenti ma il più comune è il coefficiente di
 	correlazione di Pearson:
 	
-	dove Is,v rappresenta l'insieme degli oggetti che entrambi gli utenti s
-	e v hanno votato, e w(s,v) è localizzato nell'intervallo {[}-1,1{]}. Un
+	dove $I\textsubscript{s,v}$ rappresenta l'insieme degli oggetti che entrambi gli utenti $s$
+	e $v$ hanno votato, e $w(s,v)$ è localizzato nell'intervallo ${[}-1,1{]}$. Un
 	problema per il calcolo della somiglianza è che nel caso in cui non ci
 	sono o solamente pochi oggetti sono stati votati in comune, la
 	somiglianza calcolata non è affidabile introducendo incertezza rispetto
@@ -308,7 +311,7 @@
 	\begin{itemize}
 		\item
 		L'incertezza della predizione derivata è una funzione decrescente del
-		numero di punteggi dati dagli utenti simili in Ns,j. Più utenti ci
+		numero di punteggi dati dagli utenti simili in $N\textsubscript{s,j}$. Più utenti ci
 		saranno nel vicinato e più affidabile sarà la predizione risultante;
 		\item
 		Vale l'equazione...
@@ -316,20 +319,20 @@
 	
 	Quindi emerge il seguente insieme di equazioni...
 	
-	dove W = 2 è il precedente peso non informativo. Come detto
-	precedentemente Ns,j è il vicinato dell'utente s vincolato dall'aver
-	votato l'oggetto j, e Is,v è l'insieme di oggetti che entrambi gli
-	utenti s e v hanno votato.
+	dove $W = 2$ è il precedente peso non informativo. Come detto
+	precedentemente $N\textsubscript{s,j}$ è il vicinato dell'utente $s$ vincolato dall'aver
+	votato l'oggetto $j$, e $I\textsubscript{s,v}$ è l'insieme di oggetti che entrambi gli
+	utenti $s$ e $v$ hanno votato.
 	
 	Sebbene l'equazione è stata ottenuta da un metodo CF basato sull'utente,
 	essa può essere facilmente adattata ai metodi CF basati sull'oggetto:
 	...
 	
-	dove Ns,j è il vicinato dell'oggetto j, ossia l'insieme di oggetti che
-	sono stati votati dagli utenti che hanno votato anche l'oggetto j e dove
-	tutti (o alcuni) sono stati votati dall'utente s. Mentre Ui,j è
-	l'insieme degli utenti che hanno votato entrambi gli oggetti i e j. Come
-	prima, solo i migliori K oggetti saranno selezionati come vicinato per
+	dove $N\textsubscript{s,j}$ è il vicinato dell'oggetto $j$, ossia l'insieme di oggetti che
+	sono stati votati dagli utenti che hanno votato anche l'oggetto $j$ e dove
+	tutti (o alcuni) sono stati votati dall'utente $s$. Mentre $U\textsubscript{i,j}$ è
+	l'insieme degli utenti che hanno votato entrambi gli oggetti $i$ e $j$. Come
+	prima, solo i migliori $K$ oggetti saranno selezionati come vicinato per
 	le predizioni di punteggio.
 	
 	\hypertarget{header-n134}{%
@@ -390,17 +393,17 @@
 		\subsubsection{Operatore CasMin con opinioni
 			multinomiali}\label{header-n151}}
 	
-	Indichiamo con X=\{x\textsubscript{1} ,...,x\textsubscript{k}\} un frame
-	ordinato di cardinalità k, dove xk è il livello di punteggio più alto
+	Indichiamo con $X=\{x\textsubscript{1} ,...,x\textsubscript{k}\}$ un frame
+	ordinato di cardinalità $k$, dove $x\textsubscript{k}$ è il livello di punteggio più alto
 	ottenuto da un sistema di raccomandazione o reputazione. Assumiamo che
-	ci siano due opinioni omegaAx e omegaBx sul frame X dove A e B indicano
+	ci siano due opinioni $\omega\textsuperscript{A}\textsubscript{X}$ e $\omega\textsuperscript{B}\textsubscript{X}$ sul frame $X$ dove A e B indicano
 	due diversi proprietari di credenze, ossia due argomenti. Le due
 	opinioni possono essere matematicamente combinate usando l'operatore
 	CasMin denotato dalla seguente espressione...
 	
 	La soluzione proposta da Josang richiede opinioni multinomiali. Prima di
-	tutto agisce sulla credenza del livello più alto xk e per finire agisce
-	sulla credenza del livello più basso x1. Ad ogni livello esegue le
+	tutto agisce sulla credenza del livello più alto $x\textsubscript{k}$ e per finire agisce
+	sulla credenza del livello più basso $x\textsubscript{1}$. Ad ogni livello esegue le
 	operazioni descritte nella sezione precedente. La linea 2 assicura che
 	la credenza dell'argomento A sia sempre migliore della credenza
 	dell'argomento B, facendo un'operazione di swap se necessario. Al
@@ -410,37 +413,37 @@
 	\hypertarget{header-n156}{%
 		\paragraph{Pseudocodice}\label{header-n156}}
 	
-	\begin{verbatim}
-	FOR i = k to 2 DO {
+%	\begin{algorithmic}
+%	FOR i = k to 2 DO {
 	
-	IF bAx(xi)<=bBx(xi) THEN {Swap(omegaAx,omegaBx);}
+%	IF bAx(xi)<=bBx(xi) THEN {Swap(omegaAx,omegaBx);}
 	
-	IF uBx>(bAx(xi) - bBx(xi)) THEN {
+%	IF uBx>(bAx(xi) - bBx(xi)) THEN {
 	
-	uBx=uBx - (bAx(xi) - bBx(xi));
+%	uBx=uBx - (bAx(xi) - bBx(xi));
 	
-	bBx(xi) = bAx(xi);
+%	bBx(xi) = bAx(xi);
 	
-	bcascade=0;
+%	bcascade=0;
 	
-	} ELSE {
+%	} ELSE {
 	
-	bBx(xi)=bBx(xi) + uBx;
+%	bBx(xi)=bBx(xi) + uBx;
 	
-	uBx=0;
+%	uBx=0;
 	
-	bcascade=bAx(xi) - bBx(xi);
+%	bcascade=bAx(xi) - bBx(xi);
 	
-	bAx(xi)=bBx(xi);
+%	bAx(xi)=bBx(xi);
 	
-	}
+%	}
 	
-	bAx(xi-1)=bAx(xi-1) + bcascade;
+%	bAx(xi-1)=bAx(xi-1) + bcascade;
 	
-	}
+%	}
 	
-	CasMin=omegaAx;
-	\end{verbatim}
+%	CasMin=omegaAx;
+%	\end{algorithmic}
 	
 	\hypertarget{header-n158}{%
 		\paragraph{Esempio}\label{header-n158}}
@@ -507,7 +510,7 @@
 	basato sull'utente (riferimento equazione). Dopo aver ottenuto le due
 	opinioni binomiali si può utilizzare l'algoritmo di seguito proposto per
 	combinare i risultati. L'algoritmo restituisce solamente il vettore di
-	belief \textbf{b} del risultato combinato. Infatti è il vettore di
+	belief $\textbf{b}$ del risultato combinato. Infatti è il vettore di
 	belief il dato interessante che determina la qualità della
 	raccomandazione finale. Un vettore di belief alto nel CasMin indica una
 	buona raccomandazione (raccomandazione e reputazione entrambi alti),
@@ -517,27 +520,29 @@
 	\hypertarget{header-n195}{%
 		\paragraph{Pseudocodice}\label{header-n195}}
 	
-	\begin{lstlisting}
-	IF bAx(xi)<=bBx(xi) THEN {Swap(omegaAx,omegaBx);}
+	\begin{algorithmic}
+	\If {$b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i}) \le b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i})$} 
+		\State $Swap(\omega\textsuperscript{A}\textsubscript{X},\omega\textsuperscript{B}\textsubscript{X})$ 
+	\EndIf
 	
-	IF uBx>(bAx(xi) - bBx(xi)) THEN {
+	\If {$u\textsuperscript{B}\textsubscript{X}>(b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i}) - b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i}))$}
 	
-	uBx=uBx - (b\textsuperscript{A}\textsubscript{X}(xi) - bBx(xi));
+		\State $u\textsuperscript{B}\textsubscript{X}=u\textsuperscript{B}\textsubscript{X} - (b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i}) - b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i}))$
 	
-	bBx(xi) = bAx(xi);
+		\State $b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i}) = b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i})$
 	
-	} ELSE {
+	\Else 
 	
-	bBx(xi)=bBx(xi) + uBx;
+		\State $b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i})=b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i}) + u\textsuperscript{B}\textsubscript{X}$
 	
-	uBx=0;
+		\State $u\textsuperscript{B}\textsubscript{X}=0$
 	
-	bAx(xi)=bBx(xi);
+		\State $b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i})=b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i})$
 	
-	}
+	\EndIf
 	
-	CasMin=omegaAx;
-	\end{lstlisting}
+	\State $CasMin=\omega\textsuperscript{A}\textsubscript{X}$
+	\end{algorithmic}
 	
 	\hypertarget{header-n197}{%
 		\paragraph{Esempio}\label{header-n197}}
@@ -675,7 +680,7 @@
 	
 	A differenza dell'algoritmo di CasMin individuato da Josang la nostra
 	soluzione per scegliere l'elemento di preferenza migliore non da
-	priorità alle preferenze che hanno un voto "medio/alto" per entrambi i
+	priorità alle preferenze che hanno un voto ``medio/alto" per entrambi i
 	sistemi (quello di reputazione e quello di raccomandazione) ma bensì
 	ottimizza il soddisfacimento in generale. Quindi in molti casi la
 	soluzione proposta dallo studio di Josang e la nostra riportano i
