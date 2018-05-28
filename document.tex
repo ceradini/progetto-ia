@@ -413,37 +413,41 @@
 	\hypertarget{header-n156}{%
 		\paragraph{Pseudocodice}\label{header-n156}}
 	
-%	\begin{algorithmic}
-%	FOR i = k to 2 DO {
+	\begin{algorithmic}
+		\For {$i = k$ \textbf{to} $2$} 
 	
-%	IF bAx(xi)<=bBx(xi) THEN {Swap(omegaAx,omegaBx);}
+			\If {$b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i}) \le b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i})$}  
+				
+				\State $Swap(\omega\textsuperscript{A}\textsubscript{X},\omega\textsuperscript{B}\textsubscript{X})$
+				
+			\EndIf
 	
-%	IF uBx>(bAx(xi) - bBx(xi)) THEN {
+			\If {$u\textsuperscript{B}\textsubscript{X}>(b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i}) - b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i}))$} 
 	
-%	uBx=uBx - (bAx(xi) - bBx(xi));
+				\State $u\textsuperscript{B}\textsubscript{X}=u\textsuperscript{B}\textsubscript{X} - (b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i}) - b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i}))$
 	
-%	bBx(xi) = bAx(xi);
+				\State $b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i}) = b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i})$
 	
-%	bcascade=0;
+				\State $b\textsubscript{cascade}=0$
 	
-%	} ELSE {
+			\Else
 	
-%	bBx(xi)=bBx(xi) + uBx;
+				\State $b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i})=b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i}) + u\textsuperscript{B}\textsubscript{X}$
 	
-%	uBx=0;
+				\State $u\textsuperscript{B}\textsubscript{X}=0$
 	
-%	bcascade=bAx(xi) - bBx(xi);
+				\State $b\textsubscript{cascade}=b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i}) - b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i})$
 	
-%	bAx(xi)=bBx(xi);
+				\State $b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i})=b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i})$
 	
-%	}
+			\EndIf
 	
-%	bAx(xi-1)=bAx(xi-1) + bcascade;
+			\State $b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i-1})=b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i-1}) + b\textsubscript{cascade}$
 	
-%	}
+		\EndFor
 	
-%	CasMin=omegaAx;
-%	\end{algorithmic}
+		\State $CasMin=\omega\textsuperscript{A}\textsubscript{X}$
+	\end{algorithmic}
 	
 	\hypertarget{header-n158}{%
 		\paragraph{Esempio}\label{header-n158}}
