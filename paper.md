@@ -4,7 +4,7 @@
 
 Su Internet la quantità di informazioni è travolgente e continuamente in aumento, questo ha reso impossibile l'accesso tempestivo a elementi e informazioni di interesse su Internet. I sistemi di recupero delle informazioni (ad esempio i motori di ricerca) hanno parzialmente risolto il problema ma priorità e personalizzazione (mappare i contenuti disponibili per gli interessi e le preferenze dell'utente) di informazioni erano assenti.
 
-Per tale motivo sono stati introdotti i sistemi di raccomendazione. I *Sistemi di Raccomandazione* sono sistemi di filtraggio di informazioni correlate alle preferenze dell'utente, l'interesse o al comportamento osservato su di esso rispetto alla grande quantità di informazioni. Questi sistemi hanno la capacità di prevedere se un determinato utente preferirebbe un articolo o meno in base al profilo dell'utente.
+Per tale motivo sono stati introdotti i sistemi di raccomandazione. I *Sistemi di Raccomandazione* sono sistemi di filtraggio di informazioni correlate alle preferenze dell'utente, l'interesse o al comportamento osservato su di esso rispetto alla grande quantità di informazioni. Questi sistemi hanno la capacità di prevedere se un determinato utente preferirebbe un articolo o meno in base al profilo dell'utente.
 
 I sistemi di raccomandazione portano dei vantaggi sia agli utenti, mostrando informazioni di interesse, sia per i fornitori di servizi perché riducono i costi di transazione per la ricerca, selezione di articoli in ambiente di shopping online. Essi migliorano le entrate in quanto sono mezzi efficaci per vendere più prodotti.
 
@@ -219,11 +219,21 @@ I vincoli soft saranno modellati utilizzando un c-semiring formato nel seguente 
 
 Quindi la combinazione dei valori sarà ottenuta attraverso l'operatore di somma mentre il criterio di ottimizzazione sarà il massimo dei valori combinati.
 
-I vincoli saranno ottenuti prendendo come risultato i valori di reputazione ottenuti ed i valori di raccomandazione per le due (o più entità) da mettere in relazione. 
-Quindi i valori di belief ottenuti dal sistema di reputazione vengono associati ad ogni vincolo. Potrebbe essere (come nel caso dell'esempio) che un'entità in un sistema non abbia un punteggio di reputazione perché non viene considerata dal sistema, ad esempio nel caso di utenti che votano degli hotel: il sistema potrebbe tracciare solo i voti che gli utenti danno agli hotel e non viceversa, in questo caso è bene che il valore di reputazione assegnato a questa entità sia uguale per tutto il dominio, quindi 1 a tutti gli utenti per esempio facendo si che diventi ininfluente ai fini del risultato. Considerando però che sarà possibile modificare questo valore in futuro nel momento in cui si possiedano informazioni quali la reputazione di un'entità che prima non ne aveva.
-I valori di raccomandazione vengono utilizzati come valore di preferenza per le due entità.
+I vincoli saranno ottenuti mettendo in relazione le entità facenti parte del sistema e collegandole tra loro utilizzando i risultati dai due sistemi (reputazione e raccomandazione) nel seguente modo:
 
-## Esempio
+1. I **valori di belief ottenuti dal sistema di reputazione** vengono associati ad ogni vincolo. 
+
+   Potrebbe essere (come nel caso dell'esempio) che un'entità in un sistema non abbia un punteggio di reputazione perché non viene considerata dal sistema (ad esempio nel caso di utenti che votano degli hotel: il sistema potrebbe tracciare solo i voti che gli utenti danno agli hotel e non viceversa) ed in questo caso il valore di reputazione assegnato a questa entità deve essere uguale per tutto il dominio (nel nostro caso 1). E' bene considerare che sarà possibile modificare questo valore in futuro nel momento in cui si riesca ad ottenere punteggi di reputazione anche per quelle entità che prima non venivano valutate.
+
+2. I **valori di belief ottenuti dal sistema di raccomandazione** vengono utilizzati invece come valore di preferenza per le due entità.
+
+## Sviluppo
+
+Una volta costruiti i vincoli tra le entità utilizzando i valori di belief dei sistemi di raccomandazione e reputazione sarà possibile capire quale è l'associazione migliore che massimizza la preferenza tra le entità convolte.
+
+Per ottenere il risultato su n vincoli, basterà combinare le preferenze tra le n entità attraverso l'operatore somma, la preferenza migliore sarà quella massima. 
+
+### Esempio
 
 Si fornisce quì di seguito un esempio utilizzando gli stessi valori contenuti negli esempio precedente sull'implementazione dell'algoritmo di CasMin ma in questo caso a noi interessa solo il valore di *belief* ottenuto dai sistemi di reputazione (rep) e raccomandazione (rec).
 I valori di raccomandazione sono riferiti all'utente *User 1* su cui poi si baserà l'esempio per capire secondo l'applicazione dei vincoli soft quale sarebbe l'hotel per lui consigliato.
@@ -255,7 +265,7 @@ Giunti a questo punto si utilizza l'operatore di ottimizzazione per ottenere il 
 ## Conclusioni
 
 A differenza dell'algoritmo di CasMin individuato da Josang la nostra soluzione pre scegliere l'elemento di preferenza migliore non da priorità alle preferenze che hanno un voto "medio/alto" per entrambi i sistemi (quello di reputazione e quello di raccomandazione) ma bensi ottimizza il soddisfacimento in generale. 
-Quindi in molti casi la soluzione proposta dallo studio di Josang e la nostra riportano i medesimi risultati ma potrebbero esserci casi in cui questo non è verificato. Suggeriamo di consultare la sezione riguardo alla nostra implementazione per avere ulteriori riscontri.
+Quindi in molti casi la soluzione proposta dallo studio di Josang e la nostra riportano i medesimi risultati ma potrebbero esserci casi in cui questo non è verificato. Consultare la sezione riguardo alla nostra implementazione per avere i risconti ed i risultati di questa analisi.
 
 # La nostra implementazione
 
