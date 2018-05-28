@@ -5,7 +5,7 @@
 \usepackage{booktabs}
 \usepackage{listings}
 \usepackage{lipsum}% http://ctan.org/pkg/lipsum
-\author{Alberto Bezzon, Tommaso Carraro, Matteo Ceradini} \title{Combining recommender and reputation systems to produce better online advice} \date{\today}
+\author{Alberto Bezzon, Tommaso Carraro, Matteo Ceradini} \title{Combinare sistemi di reputazione e di raccomandazione per ottenere consigli migliori online} \date{\today}
 \renewcommand{\thesection}{\arabic{section}}%
 \begin{document}
 	\maketitle
@@ -25,7 +25,7 @@
 	disponibili per gli interessi e le preferenze dell'utente) di
 	informazioni erano assenti.
 	
-	Per tale motivo sono stati introdotti i sistemi di raccomendazione. I
+	Per tale motivo sono stati introdotti i sistemi di raccomandazione. I
 	\emph{Sistemi di Raccomandazione} sono sistemi di filtraggio di
 	informazioni correlate alle preferenze dell'utente, l'interesse o al
 	comportamento osservato su di esso rispetto alla grande quantità di
@@ -146,7 +146,7 @@
 	Un'opinione è una funzione composta che consiste in un vettore di belief
 	\textbf{b}, un parametro di incertezza \textbf{u} e un vettore di base
 	rate \textbf{a}, che prende valori nell'intervallo {[}0,1{]} e che
-	soddisfa i seguenti requisiti di addittività:
+	soddisfa i seguenti requisiti di additività:
 	
 	\begin{itemize}
 		\item
@@ -271,7 +271,7 @@
 	
 	Nel nostro progetto i valori di raccomandazione sono generati da un
 	metodo CF (Collaborative filtering) basato sull'utente. Il compito dei
-	metodi CF è di predirre la preferenza di una data risorsa per un utente
+	metodi CF è di predire la preferenza di una data risorsa per un utente
 	attivo, basandosi sulla storia dell'utente stesso e degli altri
 	partecipanti della comunità. Vengono introdotti i simboli s,v per gli
 	utenti e i,j per gli oggetti. Indichiamo con Rv,i il punteggio dato da
@@ -580,7 +580,7 @@
 	compreso che combinare i due sistemi è complesso. Infatti si è dovuti
 	ricorrere alla teoria della logica soggettiva per rendere omogenei i due
 	risultati. Con questo breve articolo, il gruppo ha riproposto
-	l'algortimo di Josang e ha proposto una nuova versione dell'algortimo
+	l'algoritmo di Josang e ha proposto una nuova versione dell'algoritmo
 	che funziona con le opinioni binomiali. Il gruppo ha dovuto creare un
 	nuovo algoritmo perché è risultato difficile ricavare opinioni
 	multinomiali dai sistemi di raccomandazioni per cui risulta difficile
@@ -634,7 +634,7 @@
 	\hypertarget{header-n241}{%
 		\subsection{Esempio}\label{header-n241}}
 	
-	Si fornisce quì di seguito un esempio utilizzando gli stessi valori
+	Si fornisce qui di seguito un esempio utilizzando gli stessi valori
 	contenuti negli esempio precedente sull'implementazione dell'algoritmo
 	di CasMin ma in questo caso a noi interessa solo il valore di
 	\emph{belief} ottenuto dai sistemi di reputazione (rep) e
@@ -674,9 +674,9 @@
 		\subsection{Conclusioni}\label{header-n280}}
 	
 	A differenza dell'algoritmo di CasMin individuato da Josang la nostra
-	soluzione pre scegliere l'elemento di preferenza migliore non da
+	soluzione per scegliere l'elemento di preferenza migliore non da
 	priorità alle preferenze che hanno un voto "medio/alto" per entrambi i
-	sistemi (quello di reputazione e quello di raccomandazione) ma bensi
+	sistemi (quello di reputazione e quello di raccomandazione) ma bensì
 	ottimizza il soddisfacimento in generale. Quindi in molti casi la
 	soluzione proposta dallo studio di Josang e la nostra riportano i
 	medesimi risultati ma potrebbero esserci casi in cui questo non è
