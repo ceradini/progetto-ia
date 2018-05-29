@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{algorithm}
 \usepackage{capt-of}
+\usepackage{amsmath}
 \usepackage{longtable}
 \usepackage{caption}
 \usepackage{booktabs}
@@ -163,9 +164,9 @@
 	
 	\begin{itemize}
 		\item
-		req 1
+		\textbf{Additività belief}: \begin{equation} u_X +\sum_{x_i \in R(X)}b_X(x_i)=1 \label{equazione1};\end{equation}
 		\item
-		req 2
+		\textbf{Additività base rate}: \begin{equation}\sum_{i=1}^k a_X(x_i)=1 \textnormal{, dove } x_i \in X \label{equazione2}.\end{equation}
 	\end{itemize}
 	
 	L'opinione di un utente A sul frame $X$ è denotata come $\omega \textsuperscript{A}\textsubscript{X} =
@@ -201,8 +202,13 @@
 		\end{itemize}
 	\end{itemize}
 	
-	In caso di opinioni binomiali l'equazione 2 è espressa come... mettere
-	formula...
+	In caso di opinioni binomiali l'equazione \eqref{equazione1} è espressa come:\\
+	\begin{center}
+	\begin{equation}
+	b+d+u=1. \label{equazione3}
+	\end{equation}
+	
+	\end{center}
 	
 	\hypertarget{header-n89}{%
 		\subsubsection{Conversione di opinioni multinomiali in opinioni
@@ -226,7 +232,19 @@
 	l'opinione multinomiale $\omega\textsubscript{X}=(b\textsubscript{X},u\textsubscript{X},a\textsubscript{X})$ sul frame $X$, e che un'opinione
 	binomiale $\omega\textsubscript{y}=(b\textsubscript{y},d\textsubscript{y},u\textsubscript{y},a\textsubscript{y})$ è richiesta sul frame binario $Y$. Allora la
 	proiezione dall'opinione multinomiale $\omega\textsubscript{X}$ su $X$ nella opinione
-	binomiale $\omega\textsubscript{y}$ su $Y$ è definita da: mettere sistema...
+	binomiale $\omega\textsubscript{y}$ su $Y$ è definita da: 
+	
+	\begin{center}
+	\begin{equation}
+	\begin{cases}
+		u_y=u_X\\
+		b_y=\sum_{i=1}^k b_{x_i} \frac{(i-1)}{(k-1)}\\
+		d_y=1-b_y-u_y\\
+		a_y=\sum_{i=1}^k a_{x_i} \frac{(i-1)}{(k-1)}
+	\end{cases} \label{equazione4}
+	\end{equation}
+	\end{center}
+	
 	
 	Il vantaggio di proiettare opinioni multinomiali in opinioni binomiali è
 	la flessibilità di analizzare i punteggi di reputazione e i valori di
@@ -263,7 +281,7 @@
 	tipo $x\textsubscript{i}$, e con $\omega\textsubscript{X} =(b\textsubscript{X},u,a\textsubscript{X})$ un'opinione multinomiale su $X$. Più punteggi
 	vengono raccolti e minore sarà l'incertezza. L'opinione $\omega\textsubscript{X}$ può
 	essere determinata dai punteggi $r(x\textsubscript{i})$ tramite la seguente equazione...
-	Inserire equazione in \LaTeX{} o come immagine...
+	
 	
 	Nell'equazione $W = 2$ è il peso precedente non informativo con valore di
 	default imposto dal requisito di avere una funzione di densità di
@@ -461,6 +479,7 @@
 		\State $CasMin=\omega\textsuperscript{A}\textsubscript{X}$
 	\end{algorithmic}
 	\end{minipage}}
+	\captionof{algorithm}{CasMin con opinioni multinomiali}
 	\end{center}
 	
 	\hypertarget{header-n158}{%
@@ -568,7 +587,7 @@
 	\end{algorithmic}
 	%\end{algorithm}
 	\end{minipage}}
-	\captionof{algorithm}{CassoMio}
+	\captionof{algorithm}{CasMin con opinioni binomiali}
 	\end{center}
 	
 	\hypertarget{header-n197}{%
