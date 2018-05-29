@@ -1,7 +1,9 @@
 \documentclass{report}
-\usepackage{hyperref}
+\usepackage[italian]{babel}
+\usepackage[hidelinks]{hyperref}
 \usepackage{graphicx}
 \usepackage{longtable}
+\usepackage{caption}
 \usepackage{booktabs}
 \usepackage{algpseudocode}
 \usepackage{makecell}
@@ -10,11 +12,15 @@
 \usepackage{listings}
 \usepackage{lipsum}% http://ctan.org/pkg/lipsum
 \author{Alberto Bezzon, Tommaso Carraro, Matteo Ceradini} \title{Combinare sistemi di reputazione e di raccomandazione per ottenere consigli migliori online} \date{\today}
+\setcounter{tocdepth}{6}
+\setcounter{secnumdepth}{6}
 \renewcommand{\thesection}{\arabic{section}}%
 \newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{} \mbox{}}
 \begin{document}
 	\maketitle
 	\tableofcontents
+	\listoffigures
+	\listoftables
 	\newpage
 	\hypertarget{header-n0}{%
 		\section{Introduzione}\label{header-n0}}
