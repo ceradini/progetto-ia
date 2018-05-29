@@ -217,7 +217,7 @@ I vincoli soft saranno modellati utilizzando un c-semiring formato nel seguente 
 
 `<N, + = max, x = +, 0 = 0, 1 = 1>`
 
-Quindi la combinazione dei valori sarà ottenuta attraverso l'operatore di somma mentre il criterio di ottimizzazione sarà il massimo dei valori combinati.
+Quindi la combinazione dei valori sarà ottenuta attraverso l'operatore di sommo, il criterio di ottimizzazione sarà il massimo dei valori combinati, il minimo livello di preferenza sarà rappresentato da uno zero mentre il massimo da un uno.
 
 I vincoli saranno ottenuti mettendo in relazione le entità facenti parte del sistema e collegandole tra loro utilizzando i risultati dai due sistemi (reputazione e raccomandazione) nel seguente modo:
 
