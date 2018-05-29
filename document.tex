@@ -280,7 +280,18 @@
 	il frame di cardinalità $k$, con $r(x\textsubscript{i})$ il numero di punteggi assegnati del
 	tipo $x\textsubscript{i}$, e con $\omega\textsubscript{X} =(b\textsubscript{X},u,a\textsubscript{X})$ un'opinione multinomiale su $X$. Più punteggi
 	vengono raccolti e minore sarà l'incertezza. L'opinione $\omega\textsubscript{X}$ può
-	essere determinata dai punteggi $r(x\textsubscript{i})$ tramite la seguente equazione...
+	essere determinata dai punteggi $r(x\textsubscript{i})$ tramite la seguente equazione:
+	
+	\begin{center}
+	\begin{equation}
+		\forall x_i \in X \begin{cases}
+								b(x_i)=\frac{r(x_i)}{W+\sum_{i=1}^k r(x_i)}\\
+								u=\frac{W}{W+\sum_{i=1}^k r(x_i)}
+							\end{cases}
+							\label{equazione5}
+	\end{equation}
+	\end{center}
+	
 	
 	
 	Nell'equazione $W = 2$ è il peso precedente non informativo con valore di
@@ -308,7 +319,14 @@
 	utenti e $i,j$ per gli oggetti. Indichiamo con $R\textsubscript{v,i}$ il punteggio dato da
 	un utente $v$ all'oggetto $i$, e con $I\textsubscript{v}$ l'insieme degli oggetti che l'utente
 	$v$ ha precedentemente votato. Il punteggio medio dell'utente $v$ è dato
-	dalla seguente formula...
+	dalla seguente formula:
+	
+	\begin{center}
+	\begin{equation}
+		\overline{r_v}=\frac{1}{|I_v|} \sum_{i \in Iv} r_{v,i}
+		\label{equazione5}
+	\end{equation}
+	\end{center}
 	
 	Indichiamo con $N\textsubscript{s,j}$ il vicinato di un utente attivo $s$ vincolato
 	dall'aver votato l'oggetto $j$. Quindi $N\textsubscript{s,j}$ è l'insieme di utenti che
