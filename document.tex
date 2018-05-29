@@ -4,12 +4,14 @@
 \usepackage{longtable}
 \usepackage{booktabs}
 \usepackage{algpseudocode}
+\usepackage{makecell}
 \usepackage[utf8]{inputenc}
 \usepackage{fixltx2e}
 \usepackage{listings}
 \usepackage{lipsum}% http://ctan.org/pkg/lipsum
 \author{Alberto Bezzon, Tommaso Carraro, Matteo Ceradini} \title{Combinare sistemi di reputazione e di raccomandazione per ottenere consigli migliori online} \date{\today}
 \renewcommand{\thesection}{\arabic{section}}%
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{} \mbox{}}
 \begin{document}
 	\maketitle
 	\tableofcontents
@@ -411,8 +413,10 @@
 	risultato combinato che verrà restituito.
 	
 	\hypertarget{header-n156}{%
-		\paragraph{Pseudocodice}\label{header-n156}}
+		\myparagraph{Pseudocodice}\label{header-n156}}
 	
+	\begin{center}
+	\fbox{\begin{minipage}{18em}
 	\begin{algorithmic}
 		\For {$i = k$ \textbf{to} $2$} 
 	
@@ -448,30 +452,34 @@
 	
 		\State $CasMin=\omega\textsuperscript{A}\textsubscript{X}$
 	\end{algorithmic}
+	\end{minipage}}
+	\end{center}
 	
 	\hypertarget{header-n158}{%
-		\paragraph{Esempio}\label{header-n158}}
+		\myparagraph{Esempio}\label{header-n158}}
 	
-	\begin{longtable}[]{@{}llllll@{}}
-		\toprule
-		Hotel & Rep. Ratings & Multinomial Rep. Score & Binomial Rep. Score &
-		Rec. Value & CasMin Advice\tabularnewline
-		\midrule
-		\endhead
-		Hotel 1 & r(x5) = 50r(x4) = 10r(x3) = 10r(x2) = 0r(x1) = 5 & bX5 =
-		0.65bX4 = 0.13bX3 = 0.13bX2 = 0.00bX1 = 0.06uX = 0.03 & b = 0.81d =
-		0.16u = 0.03 & b = 0.1d = 0.7u = 0.2 & b = 0.30d = 0.70u =
-		0.00\tabularnewline
-		Hotel 2 & r(x5) = 5r(x4) = 0r(x3) = 10r(x2) = 10r(x1) = 50 & bX5 =
-		0.06bX4 = 0.00bX3 = 0.13bX2 = 0.13bX1 = 0.65uX = 0.03 & b = 0.16d =
-		0.81u = 0.03 & b = 0.7d = 0.1u = 0.2 & b = 0.19d = 0.61u =
-		0.20\tabularnewline
-		Hotel 3 & r(x5) = 50r(x4) = 10r(x3) = 10r(x2) = 0r(x1) = 5 & bX5 =
-		0.65bX4 = 0.13bX3 = 0.13bX2 = 0.00bX1 = 0.06uX = 0.03 & b = 0.81d =
-		0.16u = 0.03 & b = 0.7d = 0.1u = 0.2 & b = 0.81d = 0.19u =
-		0.00\tabularnewline
-		\bottomrule
-	\end{longtable}
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{| p{1.2cm} | p{2cm} | p{2cm} | p{1.4cm} | p{1.4cm} | p{1.4cm} |}
+		\hline
+		\textbf{Hotel} & \textbf{Rep. Ratings} & \textbf{Multinomial Rep. Score} & \textbf{Binomial Rep. Score} & \textbf{Binomial Rec. Value} & \textbf{CasMin Advice} \\
+		\hline
+		Hotel 1 & \makecell{$r(x\textsubscript{5}) = 50$\\$r(x\textsubscript{4}) = 10$\\$r(x\textsubscript{3}) = 10$\\$r(x\textsubscript{2}) = 0$\\$r(x\textsubscript{1}) = 5$} & \makecell{$b\textsubscript{x5} =
+		0.65$\\$b\textsubscript{x4} = 0.13$\\$b\textsubscript{x3} = 0.13$\\$b\textsubscript{x2} = 0.00$\\$b\textsubscript{x1} = 0.06$\\$u\textsubscript{X} = 0.03$} & \makecell{$b = 0.81$\\$d =
+		0.16$\\$u = 0.03$} & \makecell{$b = 0.1$\\$d = 0.7$\\$u = 0.2$} & \makecell{$b = 0.30$\\$d = 0.70$\\$u =
+		0.00$}\\ \hline
+		Hotel 2 & \makecell{$r(x\textsubscript{5}) = 5$\\$r(x\textsubscript{4}) = 0$\\$r(x\textsubscript{3}) = 10$\\$r(x\textsubscript{2}) = 10$\\$r(x\textsubscript{1}) = 50$} & \makecell{$b\textsubscript{x5} =
+		0.06$\\$b\textsubscript{x4} = 0.00$\\$b\textsubscript{x3} = 0.13$\\$b\textsubscript{x2} = 0.13$\\$b\textsubscript{x1} = 0.65$\\$u\textsubscript{X} = 0.03$} & \makecell{$b = 0.16$\\$d =
+		0.81$\\$u = 0.03$} & \makecell{$b = 0.7$\\$d = 0.1$\\$u = 0.2$} & \makecell{$b = 0.19$\\$d = 0.61$\\$u =
+		0.20$} \\ \hline
+		Hotel 3 & \makecell{$r(x\textsubscript{5}) = 50$\\$r(x\textsubscript{4}) = 10$\\$r(x\textsubscript{3}) = 10$\\$r(x\textsubscript{2}) = 0$\\$r(x\textsubscript{1}) = 5$} & \makecell{$b\textsubscript{x5} =
+		0.65$\\$b\textsubscript{x4} = 0.13$\\$b\textsubscript{x3} = 0.13$\\$b\textsubscript{x2} = 0.00$\\$b\textsubscript{x1} = 0.06$\\$u\textsubscript{X} = 0.03$} & \makecell{$b = 0.81$\\$d =
+		0.16$\\$u = 0.03$} & \makecell{$b = 0.7$\\$d = 0.1$\\$u = 0.2$} & \makecell{$b = 0.81$\\$d = 0.19$\\$u =
+		0.00$} \\
+		\hline
+	\end{tabular}
+	\caption[Esempio 1 - Risultato CasMin con opinioni multinomiali]{Esempio 1 - Risultato CasMin con opinioni multinomiali}
+\end{table}
 	
 	Nell'esempio illustrato si considera il caso di dover fornire consigli
 	sugli hotel di un sito web. Si assume di avere un sistema di
@@ -522,8 +530,10 @@
 	l'oggetto non verrà consigliato all'utente.
 	
 	\hypertarget{header-n195}{%
-		\paragraph{Pseudocodice}\label{header-n195}}
+		\myparagraph{Pseudocodice}\label{header-n195}}
 	
+	\begin{center}
+	\fbox{\begin{minipage}{18em}
 	\begin{algorithmic}
 	\If {$b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i}) \le b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i})$} 
 		\State $Swap(\omega\textsuperscript{A}\textsubscript{X},\omega\textsuperscript{B}\textsubscript{X})$ 
@@ -547,24 +557,29 @@
 	
 	\State $CasMin=\omega\textsuperscript{A}\textsubscript{X}$
 	\end{algorithmic}
+	\end{minipage}}
+	\end{center}
 	
 	\hypertarget{header-n197}{%
-		\paragraph{Esempio}\label{header-n197}}
+		\myparagraph{Esempio}\label{header-n197}}
 	
-	\begin{longtable}[]{@{}llll@{}}
-		\toprule
-		Hotel & Binomial Rep. Score & Binomial Rec. Value & CasMin
-		Advice\tabularnewline
-		\midrule
-		\endhead
-		Hotel 1 & b = 0.81d = 0.16u = 0.03 & b = 0.1d = 0.16u = 0.2 & b =
-		0.3\tabularnewline
-		Hotel 2 & b = 0.16d = 0.81u = 0.03 & b = 0.7d = 0.1u = 0.2 & b =
-		0.19\tabularnewline
-		Hotel 3 & b = 0.81d = 0.16u = 0.03 & b = 0.7d = 0.1u = 0.2 & b =
-		0.81\tabularnewline
-		\bottomrule
-	\end{longtable}
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{| p{1.2cm} | p{1.4cm} | p{1.4cm} | p{1.4cm} |}
+		\hline
+		\textbf{Hotel} & \textbf{Binomial Rep. Score} & \textbf{Binomial Rec. Value} & \textbf{CasMin Advice} \\
+		\hline
+		Hotel 1 & \makecell{$b = 0.81$\\$d = 0.16$\\$u = 0.03$} & \makecell{$b = 0.1$\\$d = 0.16$\\$u = 0.2$} & $b =
+		0.3$ \\ \hline
+		Hotel 2 & \makecell{$b = 0.16$\\$d = 0.81$\\$u = 0.03$} & \makecell{$b = 0.7$\\$d = 0.1$\\$u = 0.2$} & $b =
+		0.19$ \\ \hline
+		Hotel 3 & \makecell{$b = 0.81$\\$d = 0.16$\\$u = 0.03$} & \makecell{$b = 0.7$\\$d = 0.1$\\$u = 0.2$} & $b =
+		0.81$
+		\\
+		\hline
+	\end{tabular}
+	\caption[Esempio 2 - Risultato CasMin con opinioni binomiali]{Esempio 2 - Risultato CasMin con opinioni binomiali}
+\end{table}
 	
 	Applicando l'algoritmo sopra riportato alle due opinioni binomiali
 	riportate in tabella di ottengono i valori di credenza in ultima
