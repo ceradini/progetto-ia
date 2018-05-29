@@ -323,8 +323,8 @@
 	
 	\begin{center}
 	\begin{equation}
-		\overline{r_v}=\frac{1}{|I_v|} \sum_{i \in Iv} r_{v,i}
-		\label{equazione5}
+		\overline{r}_v=\frac{1}{|I_v|} \sum_{i \in Iv} r_{v,i}
+		\label{equazione6}
 	\end{equation}
 	\end{center}
 	
@@ -334,12 +334,28 @@
 	hanno votato anche lo specifico oggetto $j$. Generalmente, solo i migliori
 	$K$ utenti più simili a $s$ vengono selezionati per far parte del vicinato.
 	La predizione $P\textsubscript{s,j}$ per l'utente $s$ sull'oggetto $j$ è data dalla seguente
-	formula...
+	formula:
 	
-	Dove $k$ è un fattore di normalizzazione e $w(s,v)$ rappresenta la
+	\begin{center}
+		\begin{equation}
+			p_{s,j}=\overline{r}_s+k \sum_{v \in N_{s,j}}w(s,v)(r_{v,j}-\overline{r}_v),
+			\label{equazione7}
+		\end{equation}
+		
+	\end{center}
+	
+	dove $k$ è un fattore di normalizzazione e $w(s,v)$ rappresenta la
 	somiglianza tra gli utenti $s$ e $v$. Ci sono diversi metodi per calcolare
 	la somiglianza tra gli utenti ma il più comune è il coefficiente di
 	correlazione di Pearson:
+	
+	\begin{center}
+		\begin{equation}
+			w(s,v)=\frac{\sum_{i \in I_{s,v}}(r_{s,i}-\overline{r}_s)(r_{v,i}-\overline{r}_v)}{\sqrt{\sum_{i \in I_{s,v}} (r_{s,i}-\overline{r}_s)^2 \sum_{i \in I_{s,v}}(r_{v,i}-\overline{r}_v)^2}},
+			\label{equazione8}
+		\end{equation}
+		
+	\end{center}
 	
 	dove $I\textsubscript{s,v}$ rappresenta l'insieme degli oggetti che entrambi gli utenti $s$
 	e $v$ hanno votato, e $w(s,v)$ è localizzato nell'intervallo ${[}-1,1{]}$. Un
@@ -360,10 +376,25 @@
 		numero di punteggi dati dagli utenti simili in $N\textsubscript{s,j}$. Più utenti ci
 		saranno nel vicinato e più affidabile sarà la predizione risultante;
 		\item
-		Vale l'equazione...
+		Vale l'equazione \eqref{equazione3}.
 	\end{itemize}
 	
-	Quindi emerge il seguente insieme di equazioni...
+	Quindi emerge il seguente sistema di equazioni:
+	
+	\begin{center}
+	\begin{equation}
+	\begin{cases}
+		u\textsuperscript{s}_j=\frac{W}{W+\sum_{v \in N_{s,j}}|I_{s,v}|}\\
+		p_{s,j}=b\textsuperscript{s}_j+au\textsuperscript{s}_j\\
+		1=b\textsuperscript{s}_j+d\textsuperscript{s}_j+u\textsuperscript{s}_j
+	\end{cases} \implies 
+	\begin{cases}
+		u\textsuperscript{s}_j=\frac{W}{W+\sum_{v \in N_{s,j}}|I_{s,v}|}\\
+		b\textsuperscript{s}_j=p_{s,j}-au\textsuperscript{s}_j\\
+		d\textsuperscript{s}_j=1-b\textsuperscript{s}_j-u\textsuperscript{s}_j
+	\end{cases} \label{equazione9}
+	\end{equation}
+	\end{center}
 	
 	dove $W = 2$ è il precedente peso non informativo. Come detto
 	precedentemente $N\textsubscript{s,j}$ è il vicinato dell'utente $s$ vincolato dall'aver
@@ -372,7 +403,21 @@
 	
 	Sebbene l'equazione è stata ottenuta da un metodo CF basato sull'utente,
 	essa può essere facilmente adattata ai metodi CF basati sull'oggetto:
-	...
+	
+	\begin{center}
+	\begin{equation}
+	\begin{cases}
+		u\textsuperscript{s}_j=\frac{W}{W+\sum_{i \in N_{s,j}}|U_{i,j}|}\\
+		p_{s,j}=b\textsuperscript{s}_j+au\textsuperscript{s}_j\\
+		1=b\textsuperscript{s}_j+d\textsuperscript{s}_j+u\textsuperscript{s}_j
+	\end{cases} \implies 
+	\begin{cases}
+		u\textsuperscript{s}_j=\frac{W}{W+\sum_{i \in N_{s,j}}|U_{i,j}|}\\
+		b\textsuperscript{s}_j=p_{s,j}-au\textsuperscript{s}_j\\
+		d\textsuperscript{s}_j=1-b\textsuperscript{s}_j-u\textsuperscript{s}_j
+	\end{cases} \label{equazione10}
+	\end{equation}
+	\end{center}
 	
 	dove $N\textsubscript{s,j}$ è il vicinato dell'oggetto $j$, ossia l'insieme di oggetti che
 	sono stati votati dagli utenti che hanno votato anche l'oggetto $j$ e dove
@@ -529,13 +574,11 @@
 	Nell'esempio illustrato si considera il caso di dover fornire consigli
 	sugli hotel di un sito web. Si assume di avere un sistema di
 	raccomandazione che tracci le preferenze degli utenti, e un sistema di
-	reputazione che permetta agli utenti di valutare gli hotel. Con il
-	metodo descritto in sezione §... il sistema di reputazione può produrre
-	punteggi espressi come opinioni multinomiali. Con il metodo descritto in
-	sezione §... le opinioni multinomiali possono essere trasformate in
+	reputazione che permetta agli utenti di valutare gli hotel. Con l'equazione \eqref{equazione5} il sistema di reputazione può produrre
+	punteggi espressi come opinioni multinomiali. Con l'equazione \eqref{equazione4} le opinioni multinomiali possono essere trasformate in
 	opinioni binomiali. I valori di raccomandazione per ogni hotel e ogni
 	utente sono espressi come opinioni binomiali usando le equazioni
-	descritte in sezione §... Il sistema di raccomandazione identifica una
+	\eqref{equazione9} (CF basato sull'utente) o \eqref{equazione10} (CF basato sull'oggetto). Il sistema di raccomandazione identifica una
 	lista di hotel basandosi sul punteggio dato dall'utente e da altri
 	viaggiatori. Esso può prevedere che all'utente piacerà un hotel perché
 	altri utenti con gusti simili sono stati soddisfatti dell'hotel. Invece,
@@ -560,11 +603,11 @@
 	Il gruppo presenta una versione rivista rispetto a quella di Josang. La
 	versione proposta richiede opinioni binomiali. Prima di utilizzare
 	CasMin bisogna ottenere le opinioni multinomiali a partire dai punteggi
-	di reputazione (riferimento a equazione). Queste devono essere poi
-	mappate in opinioni binomiali (riferimento equazione). Successivamente
+	di reputazione tramite l'equazione \eqref{equazione5}. Queste devono essere poi
+	mappate in opinioni binomiali tramite l'equazione \eqref{equazione4}. Successivamente, tramite l'equazione \eqref{equazione9},
 	si possono derivare le opinioni binomiali dai sistemi di raccomandazione
 	che, nel caso proposto, utilizzano un metodo Collaborative Filtering
-	basato sull'utente (riferimento equazione). Dopo aver ottenuto le due
+	basato sull'utente. Dopo aver ottenuto le due
 	opinioni binomiali si può utilizzare l'algoritmo di seguito proposto per
 	combinare i risultati. L'algoritmo restituisce solamente il vettore di
 	belief $\textbf{b}$ del risultato combinato. Infatti è il vettore di
