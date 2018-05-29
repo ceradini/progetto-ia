@@ -2,6 +2,8 @@
 \usepackage[italian]{babel}
 \usepackage[hidelinks]{hyperref}
 \usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage{capt-of}
 \usepackage{longtable}
 \usepackage{caption}
 \usepackage{booktabs}
@@ -540,6 +542,7 @@
 	
 	\begin{center}
 	\fbox{\begin{minipage}{18em}
+	%\begin{algorithm}
 	\begin{algorithmic}
 	\If {$b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i}) \le b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i})$} 
 		\State $Swap(\omega\textsuperscript{A}\textsubscript{X},\omega\textsuperscript{B}\textsubscript{X})$ 
@@ -563,7 +566,9 @@
 	
 	\State $CasMin=\omega\textsuperscript{A}\textsubscript{X}$
 	\end{algorithmic}
+	%\end{algorithm}
 	\end{minipage}}
+	\captionof{algorithm}{CassoMio}
 	\end{center}
 	
 	\hypertarget{header-n197}{%
