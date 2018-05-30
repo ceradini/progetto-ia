@@ -22,14 +22,6 @@ Lo scopo dei sistemi di reputazione è quello di fornire consigli su risorse di 
 
 ## Combinazione tra  sistemi di raccomandazione e sistemi di reputazione
 
-Sposterei la sezione introduzione di Josang qui, ha più senso.
-
-Nella sezione 2 riassumeremo una soluzione studiata ma con un difetto. Nella sezione 3 presenteremo una nostra soluzione utilizzano i vincoli soft.
-
-# Soluzione di Josang e co.
-
-## Introduzione
-
 Come detto precedentemente i sistemi di reputazione e raccomandazione sono basati su principi differenti ma hanno entrambi lo stesso scopo: supportare l'utente fornendo delle informazioni per agevolare le sue decisioni. Brevemente, i compiti dei due sistemi sono i seguenti:
 
 - sistemi di raccomandazione: suggeriscono all'utente risorse che non conosce ma alle quali può essere interessato. I punteggi di raccomandazione sono calcolati basandosi su informazioni fornite da altri utenti per oggetti simili;
@@ -39,6 +31,12 @@ Per fornire delle raccomandazioni più accurate è possibile integrare i due sis
 
 - un voto da 1 a 5 per i sistemi di reputazione;
 - una tupla (d1, ... , dk), dove di è una diversa caratteristica della risorsa d, per i sistemi di raccomandazione.
+
+Nella sezione §2 riassumeremo una soluzione analizzata e studiata. Nella sezione §3 presenteremo una nostra soluzione utilizzano i vincoli soft.
+
+# Soluzione di Josang e co.
+
+## Introduzione
 
 La soluzione del Professor Josang e dei suoi colleghi consiste nel fondere i punteggi di reputazione e di raccomandazione tramite un operatore chiamato CasMin (Cascading Minimum Common Belief Fusion). Il problema principale è che i punteggi di reputazione sono potenzialmente diversi dai punteggi di raccomandazione, ossia sono eterogenei e quindi impossibili da fondere senza prima essere manipolati. Per applicare l'operatore CasMin a tali punteggi bisogna renderli prima di tutto omogenei. Per rendere omogenei i punteggi di reputazione e i punteggi di raccomandazione, essi devono essere mappati in opinioni soggettive. Dopo essere stati mappati in opinioni soggettive, i punteggi possono essere combinati con l'operatore CasMin che restituirà un valore alto solo se entrambi i punteggi, di reputazione e di raccomandazione rispettivamente, saranno alti. Una risorsa verrà suggerita all'utente solo se è stata raccomandata con alta confidenza e se ha un alto punteggio di reputazione. La raccomandazione diviene più accurata rispetto ad il solo sistema di raccomandazione che può raccomandare oggetti con bassa reputazione. Infine i consigli distribuiti agli utenti avranno una qualità migliore.
 
@@ -246,7 +244,7 @@ I valori di raccomandazione sono riferiti all'utente *User 1* su cui poi si base
 
 Che rappresentati graficamente come vincoli diventa:
 
-![User and Hotel rapresentation with CSP](/Users/matteo.ceradini/Google Drive/Università/Intelligenza Artificiale/Progetto/Git/images/ProgettoIA - rec and rac with csp.png)
+![User and Hotel rapresentation with CSP](images/softcsp-bw.png)
 
 Quindi effettuando la combinazione dei valori i risultati sono:
 

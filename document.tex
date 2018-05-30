@@ -25,6 +25,7 @@
 	\listoffigures
 	\listoftables
 	\newpage
+	\renewcommand*{\arraystretch}{2}
 	\hypertarget{header-n0}{%
 		\section{Introduzione}\label{header-n0}}
 	
@@ -57,8 +58,6 @@
 	suggerimenti su risorse di cui un utente, a priori non ne è a conoscenza
 	ma probabilmente potrebbe essere interessato a esse.
 	
-	(Direi che tralasciamo come funzionano?)
-	
 	\hypertarget{header-n15}{%
 		\subsection{Sistemi di reputazione}\label{header-n15}}
 	
@@ -75,18 +74,6 @@
 	\hypertarget{header-n20}{%
 		\subsection{Combinazione tra sistemi di raccomandazione e sistemi di
 			reputazione}\label{header-n20}}
-	
-	Sposterei la sezione introduzione di Josang qui, ha più senso.
-	
-	Nella sezione 2 riassumeremo una soluzione studiata ma con un difetto.
-	Nella sezione 3 presenteremo una nostra soluzione utilizzano i vincoli
-	soft.
-	
-	\hypertarget{header-n25}{%
-		\section{Soluzione di Josang e co.}\label{header-n25}}
-	
-	\hypertarget{header-n26}{%
-		\subsection{Introduzione}\label{header-n26}}
 	
 	Come detto precedentemente i sistemi di reputazione e raccomandazione
 	sono basati su principi differenti ma hanno entrambi lo stesso scopo:
@@ -117,6 +104,16 @@
 		una tupla $(d\textsubscript{1}, ... , d\textsubscript{k})$, dove di è una diversa caratteristica della
 		risorsa d, per i sistemi di raccomandazione.
 	\end{itemize}
+	
+	Nella sezione §2 riassumeremo una soluzione analizzata e studiata.
+	Nella sezione §3 presenteremo una nostra soluzione utilizzano i vincoli
+	soft.
+	\newpage
+	\hypertarget{header-n25}{%
+		\section{Soluzione di Josang e co.}\label{header-n25}}
+	
+	\hypertarget{header-n26}{%
+		\subsection{Introduzione}\label{header-n26}}
 	
 	La soluzione del Professor Josang e dei suoi colleghi consiste nel
 	fondere i punteggi di reputazione e di raccomandazione tramite un
@@ -202,7 +199,7 @@
 		\end{itemize}
 	\end{itemize}
 	
-	In caso di opinioni binomiali l'equazione \eqref{equazione1} è espressa come:\\
+	In caso di opinioni binomiali l'equazione \eqref{equazione1} è espressa come:
 	\begin{center}
 	\begin{equation}
 	b+d+u=1. \label{equazione3}
@@ -703,7 +700,7 @@
 	soluzione proposta sia migliore per un utilizzo con dati reali e
 	cercherà di provare questa affermazione implementando l'algoritmo in
 	Python e testandolo con dataset reali trovati nel web.
-	
+	\newpage
 	\hypertarget{header-n226}{%
 		\section{Una nostra alternativa}\label{header-n226}}
 	
@@ -758,19 +755,22 @@
 	secondo l'applicazione dei vincoli soft quale sarebbe l'hotel per lui
 	consigliato.
 	
-	\begin{longtable}[]{@{}lll@{}}
-		\toprule
-		Hotel & Binomial Rep. Score & Binomial Rec. Score\tabularnewline
-		\midrule
-		\endhead
-		Hotel 1 & b = 0.81 & b = 0.1\tabularnewline
-		Hotel 2 & b = 0.16 & b = 0.7\tabularnewline
-		Hotel 3 & b = 0.81 & b = 0.7\tabularnewline
-		\bottomrule
+	\begin{longtable}[]{@{}|l|l|l|@{}}
+		\hline
+		\textbf{Hotel} & \textbf{Binomial Rep. Score} & \textbf{Binomial Rec. Score}\\ \hline
+		Hotel 1 & b = 0.81 & b = 0.1 \\ \hline
+		Hotel 2 & b = 0.16 & b = 0.7 \\ \hline
+		Hotel 3 & b = 0.81 & b = 0.7 \\ \hline
+		\caption[Dati CasMin con opinioni binomiali]{Dati CasMin con opinioni binomiali}
 	\end{longtable}
 	
 	Che rappresentati graficamente come vincoli diventa:
 	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics{images/softcsp-bw.png}
+		\caption{Esempio con vincoli soft}
+	\end{figure}
 	
 	Quindi effettuando la combinazione dei valori i risultati sono:
 	
@@ -804,8 +804,12 @@
 	\hypertarget{header-n287}{%
 		\section{Bibliografia}\label{header-n287}}
 	
-	https://www.sciencedirect.com/science/article/pii/S1110866515000341
-	
-	https://link.springer.com/article/10.1007/s12599-017-0493-1
+	\begin{enumerate}
+		\item
+		\href{https://www.researchgate.net/publication/262187804_Combining_Recommender_and_Reputation_Systems_to_Produce_Better_Online_Advice}{\textit{Combining Recommender and Reputation Systems to Produce Better Online Advice}}, Audun Jøsang, Guibing Guo, Maria Silvia Pini, Francesco Santini, Yue Xu
+		\item \href{https://www.sciencedirect.com/science/article/pii/S1110866515000341}{\textit{Recommendation systems: Principles, methods and evaluation}}, F.O.Isinkaye Y.O.Folajimi B.A.Ojokoh
+		\item 
+		\href{https://link.springer.com/article/10.1007/s12599-017-0493-1}{\textit{Interactive Reputation Systems}}, Johannes Sänger Günther Pernul
+	\end{enumerate}
 	
 \end{document}
