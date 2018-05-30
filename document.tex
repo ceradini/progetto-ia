@@ -580,18 +580,20 @@
 	viaggiatori. Esso può prevedere che all'utente piacerà un hotel perché
 	altri utenti con gusti simili sono stati soddisfatti dell'hotel. Invece,
 	il sistema di reputazione produce punteggi disponibili a tutta la
-	comunità per ogni hotel. L'operatore CasMin produce risultati
+	comunità, per ogni hotel. L'operatore CasMin produce risultati
 	conservativi in modo che un hotel debba avere simultaneamente alti
-	valori di raccomandazione e alti punteggi di reputazione. Nella tabella
+	valori di raccomandazione e alti punteggi di reputazione. 
+	
+	Nella tabella
 	è mostrata la combinazione di due opinioni multinomiali, una per il
 	sistema di raccomandazione e una per il sistema di reputazione,
 	utilizzando l'algoritmo sopra descritto. Vengono illustrati i risultati
 	di analisi di tre hotel differenti sul sito web. Nei casi dell'hotel 1 e
-	l'hotel 2 dove i valori di raccomandazione e i punteggi di reputazione
+	l'hotel 2, dove i valori di raccomandazione e i punteggi di reputazione
 	sono in conflitto, il consiglio restituito dal CasMin ha un belief
-	basso. L'unico risultato buono è per l'hotel 3 dove entrambi i sistemi
+	basso. L'unico risultato buono è per l'hotel 3, dove entrambi i sistemi
 	hanno prodotto punteggi positivi e la combinazione ha prodotto un buon
-	valore della belief del CasMin.
+	valore di belief del CasMin.
 	
 	\hypertarget{header-n192}{%
 		\subsubsection{Operatore CasMin con opinioni
@@ -670,7 +672,7 @@
 \end{table}
 	
 	Applicando l'algoritmo sopra riportato alle due opinioni binomiali
-	riportate in tabella di ottengono i valori di credenza in ultima
+	riportate in tabella si ottengono i valori di belief in ultima
 	colonna. Si può notare che l'hotel che verrà consigliato dal sistema è
 	il terzo. Infatti il valore ottenuto dal CasMin è 0.81 che significa che
 	entrambi i sistemi, di reputazione e raccomandazione, hanno restituito
@@ -709,12 +711,13 @@
 	\hypertarget{header-n227}{%
 		\subsection{Introduzione}\label{header-n227}}
 	
-	Il nostro gruppo ha tuttavia pensato ad un'alternativa alla soluzione
+	Il gruppo ha tuttavia pensato ad un'alternativa alla soluzione
 	proposta da Josang ed il suo team per combinare i risultati ottenuti dai
-	sistemi di reputazione e sistemi di raccomandazione, la nostra proposta
+	sistemi di reputazione e sistemi di raccomandazione. 
+	
+	La proposta del gruppo
 	è quella di utilizzare il formalismo dei vincoli soft per combinare le
-	preferenze espresse dai due tipi di sistemi, quello di raccomandazione e
-	quello di reputazione.
+	preferenze espresse dai due tipi di sistema.
 	
 	\hypertarget{header-n230}{%
 		\subsection{Descrizione}\label{header-n230}}
@@ -725,11 +728,11 @@
 	\texttt{\textless{}N,\ +\ =\ max,\ x\ =\ +,\ 0\ =\ 0,\ 1\ =\ 1\textgreater{}}
 	
 	Quindi la combinazione dei valori sarà ottenuta attraverso l'operatore
-	di somma mentre il criterio di ottimizzazione sarà il massimo dei valori
+	di somma, mentre il criterio di ottimizzazione sarà il massimo dei valori
 	combinati.
 	
-	I vincoli saranno ottenuti prendendo come risultato i valori di
-	reputazione ottenuti ed i valori di raccomandazione per le due (o più
+	I vincoli saranno ottenuti prendendo come risultato i punteggi di
+	reputazione ottenuti e i valori di raccomandazione per le due (o più
 	entità) da mettere in relazione. Quindi i valori di belief ottenuti dal
 	sistema di reputazione vengono associati ad ogni vincolo. Potrebbe
 	essere (come nel caso dell'esempio) che un'entità in un sistema non
