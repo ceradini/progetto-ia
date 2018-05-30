@@ -487,9 +487,7 @@
 	ci siano due opinioni $\omega\textsuperscript{A}\textsubscript{X}$ e $\omega\textsuperscript{B}\textsubscript{X}$ sul frame $X$ dove A e B indicano
 	due diversi proprietari di credenze, ossia due argomenti. Le due
 	opinioni possono essere matematicamente combinate usando l'operatore
-	CasMin denotato dalla seguente espressione:
-	
-	
+	CasMin denotato dalla seguente espressione: $\omega^{(A \downarrow B)}\textsubscript{X}=CasMin(\omega\textsuperscript{A}\textsubscript{X}, \omega\textsuperscript{B}\textsubscript{X})$.
 	
 	La soluzione proposta da Josang richiede opinioni multinomiali. Prima di
 	tutto agisce sulla credenza del livello più alto $x\textsubscript{k}$ e per finire agisce
@@ -504,8 +502,8 @@
 		\myparagraph{Pseudocodice}\label{header-n156}}
 	
 	\begin{center}
-	\fbox{\begin{minipage}{18em}
-	\begin{algorithmic}
+	\fbox{\begin{minipage}{20em}
+	\begin{algorithmic}[1]
 		\For {$i = k$ \textbf{to} $2$} 
 	
 			\If {$b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i}) \le b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i})$}  
@@ -622,7 +620,7 @@
 	\begin{center}
 	\fbox{\begin{minipage}{18em}
 	%\begin{algorithm}
-	\begin{algorithmic}
+	\begin{algorithmic}[1]
 	\If {$b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i}) \le b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i})$} 
 		\State $Swap(\omega\textsuperscript{A}\textsubscript{X},\omega\textsuperscript{B}\textsubscript{X})$ 
 	\EndIf
