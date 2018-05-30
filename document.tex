@@ -599,20 +599,20 @@
 	
 	Il gruppo presenta una versione rivista rispetto a quella di Josang. La
 	versione proposta richiede opinioni binomiali. Prima di utilizzare
-	CasMin bisogna ottenere le opinioni multinomiali a partire dai punteggi
-	di reputazione tramite l'equazione \eqref{equazione5}. Queste devono essere poi
+	CasMin bisogna ottenere delle opinioni multinomiali a partire dai punteggi
+	di reputazione prodotti dal sistema di reputazione tramite l'equazione \eqref{equazione5}. Queste devono essere poi
 	mappate in opinioni binomiali tramite l'equazione \eqref{equazione4}. Successivamente, tramite l'equazione \eqref{equazione9},
-	si possono derivare le opinioni binomiali dai sistemi di raccomandazione
+	si possono derivare delle opinioni binomiali a partire dai valori di raccomandazione prodotti dai sistemi di raccomandazione
 	che, nel caso proposto, utilizzano un metodo Collaborative Filtering
 	basato sull'utente. Dopo aver ottenuto le due
 	opinioni binomiali si può utilizzare l'algoritmo di seguito proposto per
 	combinare i risultati. L'algoritmo restituisce solamente il vettore di
 	belief $\textbf{b}$ del risultato combinato. Infatti è il vettore di
 	belief il dato interessante che determina la qualità della
-	raccomandazione finale. Un vettore di belief alto nel CasMin indica una
-	buona raccomandazione (raccomandazione e reputazione entrambi alti),
+	raccomandazione finale. Un vettore di belief alto nel risultato del CasMin indica una
+	buona raccomandazione (punteggi di raccomandazione e reputazione entrambi alti),
 	mentre un valore basso indica una cattiva raccomandazione, ossia
-	l'oggetto non verrà consigliato all'utente.
+	l'oggetto non verrà raccomandato all'utente.
 	
 	\hypertarget{header-n195}{%
 		\myparagraph{Pseudocodice}\label{header-n195}}
@@ -688,16 +688,18 @@
 	
 	Da quando i sistemi di raccomandazione e reputazione sono a supporto
 	delle decisioni si è pensato che la combinazione degli stessi potesse
-	produrre risultati migliori rispetto ai sistemi isolati. Però si è
-	compreso che combinare i due sistemi è complesso. Infatti si è dovuti
+	produrre risultati migliori rispetto ai sistemi isolati. Però, si è
+	compreso che la combinazione dei due sistemi è complessa. Infatti, si è dovuti
 	ricorrere alla teoria della logica soggettiva per rendere omogenei i due
-	risultati. Con questo breve articolo, il gruppo ha riproposto
+	risultati. 
+	
+	Con questo breve articolo, il gruppo ha riproposto
 	l'algoritmo di Josang e ha proposto una nuova versione dell'algoritmo
 	che funziona con le opinioni binomiali. Il gruppo ha dovuto creare un
 	nuovo algoritmo perché è risultato difficile ricavare opinioni
-	multinomiali dai sistemi di raccomandazioni per cui risulta difficile
+	multinomiali dai sistemi di raccomandazione; per cui risulta difficile
 	applicare l'algoritmo di Josang nella realtà. Il gruppo ritiene che la
-	soluzione proposta sia migliore per un utilizzo con dati reali e
+	soluzione proposta sia migliore per un utilizzo con dati reali, e
 	cercherà di provare questa affermazione implementando l'algoritmo in
 	Python e testandolo con dataset reali trovati nel web.
 	\newpage
