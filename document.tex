@@ -42,7 +42,7 @@
 	
 	Per tale motivo sono stati introdotti i sistemi di raccomandazione. I
 	\emph{Sistemi di Raccomandazione} sono sistemi di filtraggio di
-	informazioni correlate alle preferenze dell'utente, l'interesse o al
+	informazioni correlate alle preferenze dell'utente, all'interesse o al
 	comportamento osservato su di esso rispetto alla grande quantità di
 	informazioni. Questi sistemi hanno la capacità di prevedere se un
 	determinato utente preferirebbe un articolo o meno in base al profilo
@@ -50,7 +50,7 @@
 	
 	I sistemi di raccomandazione portano dei vantaggi sia agli utenti,
 	mostrando informazioni di interesse, sia per i fornitori di servizi
-	perché riducono i costi di transazione per la ricerca, selezione di
+	perché riducono i costi di transazione per la ricerca e la selezione di
 	articoli in ambiente di shopping online. Essi migliorano le entrate in
 	quanto sono mezzi efficaci per vendere più prodotti.
 	
@@ -83,7 +83,7 @@
 	\begin{itemize}
 		\item
 		sistemi di raccomandazione: suggeriscono all'utente risorse che non
-		conosce ma alle quali può essere interessato. I punteggi di
+		conosce ma alle quali può essere interessato. I valori di
 		raccomandazione sono calcolati basandosi su informazioni fornite da
 		altri utenti per oggetti simili;
 		\item
@@ -101,12 +101,12 @@
 		\item
 		un voto da 1 a 5 per i sistemi di reputazione;
 		\item
-		una tupla $(d\textsubscript{1}, ... , d\textsubscript{k})$, dove di è una diversa caratteristica della
-		risorsa d, per i sistemi di raccomandazione.
+		una tupla $(d\textsubscript{1}, ... , d\textsubscript{k})$, dove $d_i$ è una diversa caratteristica della
+		risorsa $d$, per i sistemi di raccomandazione.
 	\end{itemize}
 	
-	Nella sezione §2 riassumeremo una soluzione analizzata e studiata.
-	Nella sezione §3 presenteremo una nostra soluzione utilizzano i vincoli
+	Nella sezione §2 viene riassunta una soluzione analizzata e studiata.
+	Nella sezione §3 viene presentata una soluzione che utilizza i vincoli
 	soft.
 	\newpage
 	\hypertarget{header-n25}{%
@@ -119,10 +119,10 @@
 	fondere i punteggi di reputazione e di raccomandazione tramite un
 	operatore chiamato CasMin (Cascading Minimum Common Belief Fusion). Il
 	problema principale è che i punteggi di reputazione sono potenzialmente
-	diversi dai punteggi di raccomandazione, ossia sono eterogenei e quindi
+	diversi dai valori di raccomandazione, ossia sono eterogenei e quindi
 	impossibili da fondere senza prima essere manipolati. Per applicare
 	l'operatore CasMin a tali punteggi bisogna renderli prima di tutto
-	omogenei. Per rendere omogenei i punteggi di reputazione e i punteggi di
+	omogenei. Per rendere omogenei i punteggi di reputazione e i valori di
 	raccomandazione, essi devono essere mappati in opinioni soggettive. Dopo
 	essere stati mappati in opinioni soggettive, i punteggi possono essere
 	combinati con l'operatore CasMin che restituirà un valore alto solo se
@@ -130,7 +130,7 @@
 	rispettivamente, saranno alti. Una risorsa verrà suggerita all'utente
 	solo se è stata raccomandata con alta confidenza e se ha un alto
 	punteggio di reputazione. La raccomandazione diviene più accurata
-	rispetto ad il solo sistema di raccomandazione che può raccomandare
+	rispetto al solo sistema di raccomandazione che può raccomandare
 	oggetti con bassa reputazione. Infine i consigli distribuiti agli utenti
 	avranno una qualità migliore.
 	
@@ -140,7 +140,7 @@
 	In questa sezione viene introdotta la notazione e la formazione delle
 	opinioni soggettive usate per fondere gusto e fiducia. Successivamente
 	viene descritto un metodo per mappare dei punteggi multinomiali in
-	opinioni binomiali. I punteggi multinomiali sono la forma di feedback
+	opinioni binomiali. I punteggi multinomiali sono la forma di feedback più comune
 	restituita dai sistemi di reputazione e dai sistemi di raccomandazione.
 	
 	\hypertarget{header-n50}{%
@@ -185,7 +185,7 @@
 		Opinioni binomiali: vengono applicate ai frame binari e hanno una
 		rappresentazione speciale. Indichiamo con $X = \{x,\overline{x}\}$ un frame
 		binario. Un'opinione binomiale sulla verità dello stato $x$ è la
-		quadrupla ordinata $\omega\textsubscript{X}=(b,d,u,a)$ dove:
+		quadrupla ordinata $\omega\textsubscript{X}=(b,d,u,a)$, dove:
 		
 		\begin{itemize}
 			\item
@@ -252,7 +252,7 @@
 	
 	In questa sezione vengono descritte le procedure per derivare opinioni
 	soggettive dai punteggi di reputazione e dai valori di raccomandazione
-	prodotti dai sistemi di reputazione e dai sistemi di raccomandazione
+	prodotti dai sistemi di reputazione e dai sistemi di raccomandazione,
 	rispettivamente.
 	
 	\hypertarget{header-n99}{%
@@ -267,7 +267,7 @@
 	stelle. È possibile che per un aspetto possano essere assegnati solo due
 	possibili livelli di qualità, ad esempio ``pollice in su" e ``pollice in
 	giù". In quest'ultimo caso i livelli indicano una buona qualità o una
-	cattiva qualità rispettivamente.
+	cattiva qualità, rispettivamente.
 	
 	Le opinioni per ogni aspetto possono essere derivate da tali
 	valutazioni. Il frame per ogni aspetto è composto dall'insieme di
@@ -297,12 +297,12 @@
 	
 	Un punteggio è espresso come uno specifico livello corrispondente ad un
 	singolo stato nel frame. Nel caso in cui dovessero esserci più di due
-	livelli di punteggio, le opinioni derivate sono multinomiali. Dualmente,
+	livelli di punteggio, le opinioni derivate saranno multinomiali. Dualmente,
 	nel caso in cui solo due tipi di valutazione possono essere dati, il
-	frame è binario e quindi le opinioni derivate sono binomiali. I punteggi
+	frame sarà binario e quindi le opinioni derivate saranno binomiali. I punteggi
 	di reputazione espressi come opinioni multinomiali possono essere
 	mappati in opinioni binomiali assumendo che ogni livello di punteggio
-	corrisponde ad un valore compreso nell'intervallo ${[}0,1{]}$.
+	corrisponda ad un valore compreso nell'intervallo ${[}0,1{]}$.
 	
 	\hypertarget{header-n108}{%
 		\subsubsection{Opinioni derivate dai sistemi di
@@ -330,7 +330,7 @@
 	hanno votato gli stessi (o alcuni) oggetti che anche $s$ ha votato e che
 	hanno votato anche lo specifico oggetto $j$. Generalmente, solo i migliori
 	$K$ utenti più simili a $s$ vengono selezionati per far parte del vicinato.
-	La predizione $P\textsubscript{s,j}$ per l'utente $s$ sull'oggetto $j$ è data dalla seguente
+	La predizione $p\textsubscript{s,j}$ per l'utente $s$ sull'oggetto $j$ è data dalla seguente
 	formula:
 	
 	\begin{center}
@@ -357,9 +357,9 @@
 	dove $I\textsubscript{s,v}$ rappresenta l'insieme degli oggetti che entrambi gli utenti $s$
 	e $v$ hanno votato, e $w(s,v)$ è localizzato nell'intervallo ${[}-1,1{]}$. Un
 	problema per il calcolo della somiglianza è che nel caso in cui non ci
-	sono o solamente pochi oggetti sono stati votati in comune, la
-	somiglianza calcolata non è affidabile introducendo incertezza rispetto
-	al valore previsto. Questo problema è detto cold start. Però, quando le
+	sono, o solamente pochi oggetti sono stati votati in comune, la
+	somiglianza calcolata non è affidabile e introduce incertezza rispetto
+	al valore atteso. Questo problema è detto \textbf{cold start}. Però, quando le
 	predizioni sono rappresentate in termini di opinioni soggettive, il
 	grado di incertezza può essere esplicitamente espresso. Qui sotto viene
 	descritto un metodo per ricavare opinioni binomiali dalle predizioni
@@ -398,7 +398,7 @@
 	votato l'oggetto $j$, e $I\textsubscript{s,v}$ è l'insieme di oggetti che entrambi gli
 	utenti $s$ e $v$ hanno votato.
 	
-	Sebbene l'equazione è stata ottenuta da un metodo CF basato sull'utente,
+	Sebbene l'equazione sia ottenuta da un metodo CF basato sull'utente,
 	essa può essere facilmente adattata ai metodi CF basati sull'oggetto:
 	
 	\begin{center}
@@ -437,10 +437,10 @@
 	
 	\begin{itemize}
 		\item
-		Una versione proposta da Josang che richiede che i punteggi siano
+		una versione proposta da Josang che richiede che i punteggi siano
 		espressi come opinioni multinomiali;
 		\item
-		Una versione, da noi rivista, basata sulla versione di Josang, che
+		una versione, dal gruppo rivista, basata sulla versione di Josang, che
 		richiede che i punteggi siano espressi come opinioni binomiali.
 	\end{itemize}
 	
@@ -456,11 +456,11 @@
 	masse di credenze del più alto livello sul frame, la migliore massa di
 	credenza tra i due argomenti è ridotta per essere matchata con la massa
 	di credenza del secondo argomento. Questo permette di distribuire
-	omogeneamente le masse di credenza su tale stato. La porzione di massa
+	omogeneamente le masse di credenza su tale stato (livello di punteggio). La porzione di massa
 	di credenza che è stata precedentemente rimossa dal migliore dei due
 	argomenti viene sommata alla massa di credenza del livello subito
 	inferiore nel frame. L'algoritmo procede in questo modo fino ad arrivare
-	al livello minimo del frame. Infine la massa di credenza degli ultimi
+	al livello minimo del frame. Infine la massa di credenza in eccesso degli ultimi
 	argomenti può essere matchata con la massa di incertezza dell'altro
 	argomento. In questo modo l'incertezza viene ridotta, mentre la massa di
 	credenza del livello più basso viene incrementata.
@@ -487,14 +487,16 @@
 	ci siano due opinioni $\omega\textsuperscript{A}\textsubscript{X}$ e $\omega\textsuperscript{B}\textsubscript{X}$ sul frame $X$ dove A e B indicano
 	due diversi proprietari di credenze, ossia due argomenti. Le due
 	opinioni possono essere matematicamente combinate usando l'operatore
-	CasMin denotato dalla seguente espressione...
+	CasMin denotato dalla seguente espressione:
+	
+	
 	
 	La soluzione proposta da Josang richiede opinioni multinomiali. Prima di
 	tutto agisce sulla credenza del livello più alto $x\textsubscript{k}$ e per finire agisce
 	sulla credenza del livello più basso $x\textsubscript{1}$. Ad ogni livello esegue le
 	operazioni descritte nella sezione precedente. La linea 2 assicura che
 	la credenza dell'argomento A sia sempre migliore della credenza
-	dell'argomento B, facendo un'operazione di swap se necessario. Al
+	dell'argomento B, facendo un'operazione di \textbf{swap} se necessario. Al
 	termine del ciclo la nuova opinione dell'utente A rappresenta il
 	risultato combinato che verrà restituito.
 	
