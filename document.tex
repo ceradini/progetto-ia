@@ -710,48 +710,69 @@
 	\hypertarget{header-n227}{%
 		\subsection{Introduzione}\label{header-n227}}
 	
-	Il gruppo ha tuttavia pensato ad un'alternativa alla soluzione
-	proposta da Josang ed il suo team per combinare i risultati ottenuti dai
-	sistemi di reputazione e sistemi di raccomandazione. 
-	
-	La proposta del gruppo
-	è quella di utilizzare il formalismo dei vincoli soft per combinare le
-	preferenze espresse dai due tipi di sistema.
+	Il gruppo ha tuttavia pensato ad un'alternativa alla soluzione proposta da Josang ed il suo team per combinare i risultati ottenuti dai sistemi di reputazione e sistemi di raccomandazione (ossia l'utilizzo delle opinione soggettive e dell'algoritmo di CasMin).
+
+    La nostra proposta è quella di utilizzare il formalismo dei vincoli soft (SCSP) per combinare le preferenze espresse dai due tipi di sistemi, quello di raccomandazione e quello di reputazione. Per modellare le preferenze sui vincoli abbiamo adottato una soluzione proposta in un articolo di ricerca (From soft constraints to bipolar preferences: modelling framework and solving issues, vedi bibliografia) e per la quale va il nostro ringraziamento.
+
 	
 	\hypertarget{header-n230}{%
 		\subsection{Descrizione}\label{header-n230}}
 	
-	I vincoli soft saranno modellati utilizzando un c-semiring formato nel
-	seguente modo:
+	I vincoli soft saranno modellati utilizzando utilizzando il formalismo delle preferenze positive. Dove la struttura della preferenza positiva sarà così modellata:
+	\newline
 	
-	\texttt{\textless{}N,\ +\ =\ max,\ x\ =\ +,\ 0\ =\ 0,\ 1\ =\ 1\textgreater{}}
+    $(P, +\textsubscript{p}, \times\textsubscript{p} \bot\textsubscript{p}, \top\textsubscript{p})$
+    \newline
+    
+    dove:
+    \begin{itemize}
+		\item
+		P è il set di dati dove $\bot\textsubscript{p}, \top\textsubscript{p} \in P$;
+		\item
+		$+\textsubscript{p}$ rappresenta l'operatore di confronto;
+		\item
+		$\times\textsubscript{p}$ rappresenta l'operatore di combinazione;
+		\item
+		$\bot\textsubscript{p}$ rappresenta la minima preferenza esprimibile;
+		\item
+		$\top\textsubscript{p}$ rappresenta la massima preferenza esprimibile;
+	\end{itemize}
 	
-	Quindi la combinazione dei valori sarà ottenuta attraverso l'operatore
-	di somma, mentre il criterio di ottimizzazione sarà il massimo dei valori
-	combinati.
+
+    Per l'applicazione al nostro caso si utilizzerà la seguente struttura:
+    \newline
+    
+    $(R\textsuperscript{+}, max, +, 0, +\infty)$
+    \newline
+    
+	Quindi la minima preferenza che può essere assegnata è 0. Le preferenze saranno aggregate attraverso la somma e saranno successivamente comparate attraverso l'operatore di massimo. 
+	\newpage
 	
-	I vincoli saranno ottenuti prendendo come risultato i punteggi di
-	reputazione ottenuti e i valori di raccomandazione per le due (o più
-	entità) da mettere in relazione. Quindi i valori di belief ottenuti dal
-	sistema di reputazione vengono associati ad ogni vincolo. Potrebbe
-	essere (come nel caso dell'esempio) che un'entità in un sistema non
-	abbia un punteggio di reputazione perché non viene considerata dal
-	sistema, ad esempio nel caso di utenti che votano degli hotel: il
-	sistema potrebbe tracciare solo i voti che gli utenti danno agli hotel e
-	non viceversa, in questo caso è bene che il valore di reputazione
-	assegnato a questa entità sia uguale per tutto il dominio, quindi 1 a
-	tutti gli utenti per esempio facendo si che diventi ininfluente ai fini
-	del risultato. Considerando però che sarà possibile modificare questo
-	valore in futuro nel momento in cui si possiedano informazioni quali la
-	reputazione di un'entità che prima non ne aveva. I valori di
-	raccomandazione vengono utilizzati come valore di preferenza per le due
-	entità.
+	I vincoli saranno ottenuti mettendo in relazione le entità facenti parte del sistema e collegandole tra loro utilizzando i risultati dai due sistemi (reputazione e raccomandazione) nel seguente modo:
+	
+	\begin{enumerate}
+	    \item 
+	    I \textbf{valori di belief ottenuti dal sistema di reputazione} vengono associati ad ogni vincolo. 
+
+        Potrebbe essere (come nel caso dell'esempio) che un'entità in un sistema non abbia un punteggio di reputazione perché non viene considerata dal sistema (ad esempio nel caso di utenti che votano degli hotel: il sistema potrebbe tracciare solo i voti che gli utenti danno agli hotel e non viceversa) ed in questo caso il valore di reputazione assegnato a questa entità deve essere uguale per tutto il dominio (nel nostro caso 1). E' bene considerare che sarà possibile modificare questo valore in futuro nel momento in cui si riesca ad ottenere punteggi di reputazione anche per quelle entità che prima non venivano valutate.
+        \item
+        I \textbf{valori di belief ottenuti dal sistema di raccomandazione} vengono utilizzati invece come valore di preferenza per le due entità.
+	\end{enumerate}
+	
+	\hypertarget{header-n240}{%
+		\subsection{Sviluppo}\label{header-n240}}
+		
+	Una volta costruiti i vincoli tra le entità utilizzando i valori di belief dei sistemi di raccomandazione e reputazione sarà possibile capire quale è l'associazione migliore che massimizza la preferenza tra le entità convolte.
+    \newline
+    
+    Per ottenere il risultato su \texttit{n} vincoli, basterà combinare le preferenze tra le \texttit{n} entità attraverso l'operatore somma, la preferenza migliore sarà quella massima. 
+
 	
 	\hypertarget{header-n241}{%
 		\subsection{Esempio}\label{header-n241}}
 	
 	Si fornisce qui di seguito un esempio utilizzando gli stessi valori
-	contenuti negli esempio precedente sull'implementazione dell'algoritmo
+	contenuti negli esempi precedente sull'implementazione dell'algoritmo
 	di CasMin ma in questo caso a noi interessa solo il valore di
 	\emph{belief} ottenuto dai sistemi di reputazione (rep) e
 	raccomandazione (rec). I valori di raccomandazione sono riferiti
@@ -777,12 +798,14 @@
 	\end{figure}
 	
 	Quindi effettuando la combinazione dei valori i risultati sono:
+	\newline
 	
-	\$(User1 , Hotel 1) = 1 + 0.1 + 0.81 = 1.91\$
+	$(User1 , Hotel 1) = 1 + 0.1 + 0.81 = 1.91$
 	
-	\$(User 1, Hotel 2) = 1 + 0.7 + 0.16 = 1.86\$
+	$(User 1, Hotel 2) = 1 + 0.7 + 0.16 = 1.86$
 	
-	\$(User 1, Hotel 3) = 1 + 0.7 + 0.81 = 2.51\$
+	$(User 1, Hotel 3) = 1 + 0.7 + 0.81 = 2.51$
+	\newline
 	
 	Giunti a questo punto si utilizza l'operatore di ottimizzazione per
 	ottenere il risultato ossia l'\emph{operatore di massimo} (max) ed il
@@ -814,6 +837,10 @@
 		\item \href{https://www.sciencedirect.com/science/article/pii/S1110866515000341}{\textit{Recommendation systems: Principles, methods and evaluation}}, F.O.Isinkaye Y.O.Folajimi B.A.Ojokoh
 		\item 
 		\href{https://link.springer.com/article/10.1007/s12599-017-0493-1}{\textit{Interactive Reputation Systems}}, Johannes Sänger Günther Pernul
+		\item 
+		\href{http://www.math.unipd.it/~frossi/jbip8-jetai.pdf}{\textit{From soft constraints to bipolar preferences: modelling framework and solving issues}}, Stefano Bistarelli, Maria Silvia Pini, Francesca Rossi and K. Brent Venable
+		\item
+		\textit{Slide corso 'Intelligenza artificiale a.a. 2017/2018', Università degli Studi di Padova - Informatica}, Maria Silvia Pini
 	\end{enumerate}
 	
 \end{document}
