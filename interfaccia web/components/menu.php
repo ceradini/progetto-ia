@@ -15,7 +15,7 @@
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
         <a class="nav-link" href="sorgenti.php">
           <i class="fa fa-fw fa-table"></i>
-          <span class="nav-link-text">Tabella sorgenti</span>
+          <span class="nav-link-text">Lista hotel</span>
         </a>
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">

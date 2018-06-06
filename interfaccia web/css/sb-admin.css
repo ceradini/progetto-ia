@@ -476,3 +476,8 @@ footer.sticky-footer {
     width: calc(100% - 55px);
   }
 }
+
+
+.navbar {
+  background: #8F1B1D !important;
+}
