@@ -1,12 +1,14 @@
 import pandas as pd # serve per leggere i file csv
-import math # serve per il NaN number
-# dizionari necessari per il funzionamento del programma
-reputazione = {}
-multinomiale = {}
-binomiale ={}
-read=pd.read_csv('hotel.csv') # lettura del file csv contenente dati su moltissimi hotel
+import csv          # serve per scrivere su csv
+import math         # serve per il NaN number
 
-W=2 # costante necessaria ed è uguale a 2 perché indicato da slides
+# dizionari necessari per il funzionamento del programma
+reputazione  = {}
+multinomiale = {}
+binomiale    = {}
+read         = pd.read_csv('hotel.csv') # lettura del file csv contenente dati su moltissimi hotel
+
+W = 2 # costante necessaria ed è uguale a 2 perché indicato da slides
 
 # funzione di sommatoria: esegue una sommatoria da init a end degli elementi sul dizionario passato
 def summm(init, end, toSum):
@@ -64,7 +66,13 @@ for key,value in multinomiale.items():
 for key,value in multinomiale.items():
 	calcolaBinomiale(key,value,binomiale)
 
-# print dei risultati
-print(multinomiale)
+# salvataggio su csv dei risultati
+with open('rep_bin.csv', 'w') as csvfile:
+    fieldnames = ['hotel', 'b', 'd', 'u']
+    writer     = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-print(binomiale)
+    writer.writeheader()
+
+    for key,value in binomiale.items():
+    	writer.writerow({'hotel':key,'b':value['b'],'d':value['d'],'u':value['u']})
+
