@@ -6,7 +6,7 @@ import math         # serve per il NaN number
 reputazione  = {}
 multinomiale = {}
 binomiale    = {}
-read         = pd.read_csv('hotel.csv') # lettura del file csv contenente dati su moltissimi hotel
+read         = pd.read_csv('source/hotel.csv') # lettura del file csv contenente dati su moltissimi hotel
 
 W = 2 # costante necessaria ed è uguale a 2 perché indicato da slides
 
@@ -67,7 +67,7 @@ for key,value in multinomiale.items():
 	calcolaBinomiale(key,value,binomiale)
 
 # salvataggio su csv dei risultati
-with open('rep_bin.csv', 'w') as csvfile:
+with open('output/rep_bin.csv', 'w') as csvfile:
     fieldnames = ['hotel', 'b', 'd', 'u']
     writer     = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
@@ -75,4 +75,3 @@ with open('rep_bin.csv', 'w') as csvfile:
 
     for key,value in binomiale.items():
     	writer.writerow({'hotel':key,'b':value['b'],'d':value['d'],'u':value['u']})
-
