@@ -9,7 +9,6 @@ casmin={}
 newCasmin={}
 newVincoliSoft={}
 vincoliSoft={}
-finale={}
 readrep         = pd.read_csv('output/rep_bin.csv') # lettura del file csv contenente dati su reputazione
 readrec=pd.read_csv('output/rec_bin.csv') # lettura del file csv contenente dati su raccomandazione
 raccomandazioniFinaliDict={}
@@ -54,11 +53,15 @@ def raccomandazioniFinali():
 	max=0
 	for key,value in newCasmin.items():
 		for k,v in value.items():
+			max=-10000
+			maxH=""
 			for i,j in v.items():
-				if j['b']>0.56:
-					if key not in raccomandazioniFinaliDict.keys():
-						raccomandazioniFinaliDict[key]={'listaHotel':[],'hotel':""}
-					raccomandazioniFinaliDict[key]['listaHotel'].append(i)
+				if max<j['b']:
+					max=j['b']
+					maxH=i
+			if key not in raccomandazioniFinaliDict.keys():
+				raccomandazioniFinaliDict[key]={'hotelCasMin':"",'hotelVincoli':""}
+			raccomandazioniFinaliDict[key]['hotelCasMin']=maxH
 	for key,value in newVincoliSoft.items():
 		for k,v in value.items():
 			max=-10000
@@ -68,8 +71,8 @@ def raccomandazioniFinali():
 					max=j['b']
 					maxH=i
 			if key not in raccomandazioniFinaliDict.keys():
-				raccomandazioniFinaliDict[key]={'listaHotel':[],'hotel':""}
-			raccomandazioniFinaliDict[key]['hotel']=maxH
+				raccomandazioniFinaliDict[key]={'hotelCasMin':[],'hotelVincoli':""}
+			raccomandazioniFinaliDict[key]['hotelVincoli']=maxH
 
 
 # lettura dei dati dai dataset e scrittura nei dizionari
@@ -116,5 +119,15 @@ for key,value in vincoliSoft.items():
 
 
 raccomandazioniFinali()
-print(raccomandazioniFinaliDict["A Traveler"])
+
+# scrittura di un dataset finale
+with open('output/finale.csv', 'w', encoding="utf-8") as csvfile:
+    fieldnames = ['utente','hotelRacCasMin', 'hotelRacVincoli']
+    writer     = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+    writer.writeheader()
+
+    for key,value in raccomandazioniFinaliDict.items():
+    	writer.writerow({'utente':key,'hotelRacCasMin':value['hotelCasMin'],'hotelRacVincoli':value['hotelVincoli']})
+
 
