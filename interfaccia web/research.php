@@ -83,6 +83,7 @@
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/select2.min.js"></script>
     <script src="js/research.js"></script>
+    <script src="js/anti-banner.js"></script>
   </div>
 </body>
 

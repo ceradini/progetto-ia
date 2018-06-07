@@ -57,6 +57,7 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/scsp.js"></script>
+    <script src="js/anti-banner.js"></script>
   </div>
 </body>
 
