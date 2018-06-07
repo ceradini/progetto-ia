@@ -23,6 +23,15 @@
           </div>
         </div>
       </div>
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-users"></i> Utenti</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <?php include('components/tables_users.php'); ?>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
@@ -44,7 +53,6 @@
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
-    <script src="js/sb-admin-charts.min.js"></script>
   </div>
 </body>
 

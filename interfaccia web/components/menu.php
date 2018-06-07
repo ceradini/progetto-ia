@@ -15,13 +15,24 @@
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
         <a class="nav-link" href="sorgenti.php">
           <i class="fa fa-fw fa-table"></i>
-          <span class="nav-link-text">Lista hotel</span>
+          <span class="nav-link-text">Tabelle sorgenti</span>
         </a>
       </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+            <i class="fa fa-bar-chart"></i>
+            <span class="nav-link-text">Risultati</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents">
+            <li><a href="final.php">Combinazione finale</a></li>
+            <li><a href="casmin.php">Opinioni soggettive</a></li>
+            <li><a href="scsp.php">Vincoli soft</a></li>
+          </ul>
+        </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="research.php">
           <i class="fa fa-fw fa-vcard"></i>
-          <span class="nav-link-text">Selezione dettaglio</span>
+          <span class="nav-link-text">Ricerca dettagliata</span>
         </a>
       </li>
     </ul>
