@@ -6,7 +6,7 @@ import math         # serve per il NaN number
 utenti        = {}
 utenti_validi = []                              # memorizzo qui gli utenti che sono validi secondo i limiti imposti
 read          = pd.read_csv('source/hotel.csv') # lettura del file csv contenente dati su moltissimi hotel
-L             = 3                               # limite inferiore minimo di voti per tenere un utente nel dataset
+L             = 30                               # limite inferiore minimo di voti per tenere un utente nel dataset
 
 # calcolo del punteggio medio per utente
 for index, row in read.iterrows():
