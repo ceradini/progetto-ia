@@ -1,4 +1,4 @@
-hotel,b,d,u
+hotel,brep,drep,urep
 Hotel Russo Palace,0.43,0.54,0.03
 Americas Best Value Inn,0.3,0.7,0.0
 Intermezzo,0.0,0.33,0.67
@@ -15,7 +15,7 @@ Days Inn El Reno Ok,0.31,0.63,0.06
 Gresham Area Hotels,0.0,0.33,0.67
 Berney Fly Bed and Breakfast,0.48,0.47,0.05
 Polynesian Plaza,0.32,0.59,0.09
-Hotel Vier Jahreszeiten KÜhlungsborn,0.43,0.53,0.04
+Hotel Vier Jahreszeiten KÃœhlungsborn,0.43,0.53,0.04
 The Point,0.45,0.41,0.14
 The Houstonian Hotel,0.5,0.47,0.03
 Best Western Plus Waterville Grand Hotel,0.4,0.59,0.01
@@ -422,3 +422,459 @@ Americas Best Value Inn and Suites,0.28,0.68,0.04
 Masters Inn,0.06,0.44,0.5
 The Westin Europa and Regina,0.46,0.5,0.04
 Super 8 Opelousas,0.23,0.52,0.25
+Melia Paris Champs-elysï¿½ï¿½es,0.43,0.53,0.04
+Sciï¿½ï¿½ On Martin,0.33,0.42,0.25
+Springhill Suites By Marriott South Bend/mishawaka,0.0,0.0,1.0
+Inn At The River,0.0,0.33,0.67
+Country Inn and Suites By Carlson Charlotte University Place,0.44,0.54,0.02
+Holiday Inn Express Eagle,0.0,0.0,1.0
+Sir Walter Raleigh Inns of Greenbelt,0.0,0.33,0.67
+Gardena Terrace Inn,0.38,0.6,0.02
+Quality Suites Intercontinental Airport West,0.41,0.56,0.03
+1785 Inn,0.26,0.63,0.11
+Best Western Knoxville Suites,0.43,0.54,0.03
+The Jayakarta Bali,0.35,0.62,0.03
+Holiday Inn Express Grove City (outlet Center),0.45,0.5,0.05
+Hotel Aura Sfo,0.43,0.55,0.02
+Hampton Inn Bloomington West,0.48,0.48,0.04
+Quality Inn & Suites Historic St. Charles,0.0,0.0,1.0
+Best Western Plus San Marcos Inn,0.41,0.57,0.02
+Budget Inn-santa Maria,0.04,0.29,0.67
+Equestrian Estates Horse Farm Bed and Breakfast,0.41,0.46,0.13
+Comfort Inn Deland - Near University,0.47,0.5,0.03
+Boardroom Motel,0.24,0.62,0.14
+Carleton Hotel,0.0,0.33,0.67
+Wisconsin-aire Motel,0.37,0.41,0.22
+High Desert Motel,0.38,0.53,0.09
+Best Western of Long Beach,0.41,0.58,0.01
+Days Inn Berea Ky,0.0,0.0,1.0
+East Side Motel Cabins,0.28,0.22,0.5
+Abbeville Inn,0.0,0.0,1.0
+Comfort Suites Mount Vernon,0.43,0.4,0.17
+Holiday Inn Express & Suites Phoenix Downtown - Ballpark,0.47,0.5,0.03
+Holiday Inn Express Hotel Suites Cookeville,0.19,0.31,0.5
+Fairbridge Inn,0.26,0.71,0.03
+Four Seasons Country Inn,0.4,0.49,0.11
+Gooding Hotel Bed Breakfast,0.43,0.4,0.17
+Grand Hotel Cadenabbia,0.37,0.6,0.03
+Pillar Hotels Resorts,0.0,0.33,0.67
+Hotel An Der Philharmonie,0.43,0.54,0.03
+Microtel Inn,0.0,0.0,1.0
+Crestview Condominiums,0.42,0.44,0.14
+Comfort Hotel Nation Pere Lachaise Paris 11,0.38,0.59,0.03
+Cedar Crest Inn,0.0,0.5,0.5
+Spring Fountain Motel,0.0,0.33,0.67
+Innisbrook,0.45,0.52,0.03
+Cougar Crest Lodge,0.46,0.37,0.17
+Springhill Suites By Marriott Sarasota Bradenton,0.38,0.56,0.06
+Fairfield Inn and Suites By Marriott Plainville,0.46,0.51,0.03
+Holiday Inn Express Hotel & Suites Chicago-deerfield/lincolnshire,0.43,0.43,0.14
+Camelback Resort Aquatopia Indoor Waterpark,0.16,0.44,0.4
+Marriott's Mountainside At Park City,0.45,0.52,0.03
+Fairfield Inn & Suites Atlanta Perimeter Center,0.4,0.58,0.02
+Hampton Inn Jackson Hole,0.0,0.0,1.0
+Shoshone Lodge,0.0,0.33,0.67
+Magton Inc,0.0,0.33,0.67
+Quality Inn & Suites - Riverfront,0.0,0.33,0.67
+Super 8 Schenect/albany Area,0.36,0.62,0.02
+Intown Suites El Paso,0.17,0.61,0.22
+Extended Stay America - Columbia - Northwest Harbison,0.37,0.6,0.03
+Hilton San Diego Airport/harbor Island,0.43,0.55,0.02
+Candlewood Suites Oklahoma City-moore,0.52,0.45,0.03
+Holiday Inn Express & Suites Bay City,0.39,0.55,0.06
+Rodeway Inn-tacoma,0.0,0.0,1.0
+Western Inn-glacier Park,0.34,0.63,0.03
+Americinn Lodge & Suites Appleton,0.33,0.61,0.06
+Hampton Inn Sarasota - I-75 Bee Ridge,0.41,0.58,0.01
+Amerihost Inn,0.0,0.33,0.67
+Country Inn and Suites By Carlson Galena,0.47,0.52,0.01
+Days Inn Suites,0.0,0.33,0.67
+Hampton Inn Roanoke/salem,0.43,0.43,0.14
+School House Motel,0.0,0.33,0.67
+1900 House,0.44,0.44,0.12
+Excellence Riviera Cancun - Adults Only - All Inclusive,0.53,0.44,0.03
+Hyatt Centric Arlington,0.41,0.42,0.17
+Days Inn Bowling Green,0.18,0.76,0.06
+Hotel Metropole,0.49,0.48,0.03
+Inn & Suites,0.0,0.0,1.0
+Anglers Inn,0.42,0.55,0.03
+Super 8 Crete Ne,0.33,0.62,0.05
+Hï¿½ï¿½tel Marinca and Spa,0.32,0.48,0.2
+Hyatt Place Pittsburgh Cranberry,0.47,0.51,0.02
+Four Seasons Hotel St. Louis,0.51,0.47,0.02
+El Dorado Seaside Suites By Karisma - All Inclusive,0.46,0.49,0.05
+Courtyard San Marcos,0.43,0.4,0.17
+Fairfield Inn Suites Spearfish,0.33,0.58,0.09
+Best Western Hospitality Hotel and Suites,0.39,0.6,0.01
+Hotel Adler Cavalieri,0.46,0.51,0.03
+Royal Inn Motel,0.18,0.15,0.67
+Ambiance,0.0,0.0,1.0
+Rodeway Inn Bushnell,0.0,0.0,1.0
+Microtel Inn By Wyndham Knoxville,0.31,0.67,0.02
+Candlewood,0.0,0.33,0.67
+Menehune Reservations,0.36,0.46,0.18
+Staybridge Suites Chicago - Glenview,0.39,0.56,0.05
+Riverside Lodge,0.0,0.33,0.67
+Patalya Thermal Resort,0.31,0.52,0.17
+Hï¿½ï¿½tel Les Bruyï¿½ï¿½res,0.46,0.49,0.05
+Comfort Inn Birmingham - Irondale,0.37,0.6,0.03
+Super 8 Madison,0.4,0.56,0.04
+Comfort Inn & Suites,0.36,0.55,0.09
+Concord Apartments By Boq Lodging,0.0,0.0,1.0
+Holiday Inn Express & Suites West Monroe,0.38,0.6,0.02
+Double Eagle Hotel and Casino,0.39,0.57,0.04
+Rainbow Motel,0.0,0.5,0.5
+"Country Inn & Suites By Carlson, Rocky Mount, Nc",0.42,0.53,0.05
+Ip Casino Resort Spa,0.45,0.54,0.01
+La Quinta Inn & Suites Bryant,0.51,0.46,0.03
+Travelodge Anaheim Convention Center,0.32,0.67,0.01
+Hampton Inn Tucson-airport,0.47,0.52,0.01
+Beacon Motel,0.0,0.33,0.67
+Super 8 Sallisaw,0.0,0.0,1.0
+Wilshire Inn Motel,0.06,0.44,0.5
+Palm Suites,0.38,0.6,0.02
+Hampton Inn & Suites-downtown-tutwiler,0.48,0.5,0.02
+Narcis,0.34,0.49,0.17
+Econo Lodge Big Spring,0.0,0.0,1.0
+La Quinta Inn and Suites Miami Cutler Bay,0.38,0.59,0.03
+Candlewood Suites Fort Smith,0.0,0.0,1.0
+Courtyard Burlington Harbor,0.46,0.51,0.03
+Terrace Inns Suites,0.0,0.33,0.67
+Rapid City Days Inn,0.2,0.4,0.4
+Foxburg Inn,0.0,0.33,0.67
+Aspen Haus Bed and Breakfast,0.47,0.44,0.09
+Fort's Cedar View,0.18,0.15,0.67
+Best Western Eufaula Inn,0.42,0.48,0.1
+Terry Peak Ski Area,0.0,0.5,0.5
+Super 8 - Effingham,0.4,0.57,0.03
+Best Western Plus Kelly Inn,0.45,0.53,0.02
+Days Inn Fort Wayne,0.31,0.66,0.03
+Courtyard Columbus Worthington,0.38,0.55,0.07
+Super 8 Bradenton Sarasota Area,0.29,0.68,0.03
+Chalfant House,0.0,0.33,0.67
+Hotel Corpus Christi,0.14,0.36,0.5
+Sleep Inn,0.0,0.0,1.0
+Bay Haven Inn Bed Breakfast,0.0,0.33,0.67
+Hampton Inn & Suites Millington,0.0,0.0,1.0
+Holiday Inn Express Suites Woodland Hills,0.0,0.0,1.0
+Best Western Plus Humboldt House Inn,0.38,0.53,0.09
+Red Lion Anaheim Maingate Hotel,0.22,0.38,0.4
+Albert's Motel,0.0,0.33,0.67
+Octagon Inn,0.28,0.22,0.5
+Budget Inn,0.33,0.55,0.12
+Towneplace Suites,0.0,0.33,0.67
+Hitching Horse Inn,0.34,0.46,0.2
+Homewood Suites By Hilton Indpls Airport / Plainfield In,0.46,0.5,0.04
+Kit Carson Lodge Restaurant,0.0,0.33,0.67
+Watermark Bed Breakfast,0.0,0.33,0.67
+Super 8 - Upland,0.23,0.74,0.03
+Bailey House Bed & Breakfast,0.46,0.46,0.08
+Microtel Inn Suites By Wyndham San Antonio By Seaworld,0.44,0.52,0.04
+Comfort Hotel Bernau,0.15,0.18,0.67
+Miami Executive Hotel,0.28,0.22,0.5
+Extended Stay America Princeton - West Windsor,0.06,0.44,0.5
+Mercure Curitiba Golden Hotel,0.45,0.51,0.04
+Sheraton Baltimore North Hotels,0.0,0.33,0.67
+Sids Resort,0.0,0.33,0.67
+Hampton Inn & Suites Douglas,0.0,0.33,0.67
+Comfort Inn Humboldt Bay,0.43,0.49,0.08
+Super 8 Big Cabin Vinita Ok,0.37,0.61,0.02
+Radisson Blu Conference and Airport Hotel,0.4,0.56,0.04
+Days Inn North Columbia Ft. Jackson,0.34,0.63,0.03
+Campanile Lyon Ecully,0.36,0.6,0.04
+La Brea Hotel,0.15,0.18,0.67
+Microtel Inn By Wyndham Southern Pines,0.32,0.48,0.2
+Homewood Suites Dallas-market Center,0.44,0.47,0.09
+Websters Manor,0.46,0.46,0.08
+Holiday Inn Express & Suites Lawrence,0.0,0.0,1.0
+Bethesda Gardens,0.0,0.33,0.67
+Homestead Studio Suites,0.0,0.0,1.0
+Bayside Resort Hotel,0.45,0.54,0.01
+Super 8 Batesville Ar,0.32,0.65,0.03
+Gateway Studios,0.0,0.33,0.67
+Sunset Inn,0.23,0.64,0.13
+Simpson House Inn,0.52,0.46,0.02
+Longville Inn,0.38,0.4,0.22
+A Bed & Breakfast In Cambridge,0.38,0.58,0.04
+Clatskanie River Inn,0.48,0.48,0.04
+Jellico Days Inn North Tennessee,0.0,0.0,1.0
+Mountaintop Lodge Bed Breakfast,0.0,0.33,0.67
+Inn At Mendenhall,0.48,0.49,0.03
+Hampton Inn Waco,0.0,0.0,1.0
+Roy-el Motel,0.0,0.33,0.67
+Comfort Inn and Suites Bend,0.44,0.53,0.03
+Eaglecrest Ski Area,0.46,0.46,0.08
+Magnuson Hotel Summerton,0.09,0.51,0.4
+La Quinta Inn and Suites Hopkinsville,0.45,0.52,0.03
+Lindy Motel,0.0,0.5,0.5
+Lighthouse Motel,0.07,0.53,0.4
+Cal Neva Resort,0.0,0.33,0.67
+Park Terrace Suites,0.14,0.36,0.5
+Fairfield Inn & Suites Des Moines Airport,0.0,0.6,0.4
+Super 8 Blackwell Ok,0.35,0.59,0.06
+Sand Dunes Motel,0.04,0.29,0.67
+Nantahala Cabins Inc,0.0,0.33,0.67
+Holiday Inn,0.06,0.44,0.5
+Holiday Inn & Suites Green Bay Stadium,0.0,0.0,1.0
+Cliffrose Lodge Gardens,0.52,0.47,0.01
+"The Ritz-carlton Orlando, Grande Lakes",0.0,0.0,1.0
+Super 8 Belle Fourche,0.29,0.68,0.03
+Merritt House Inn,0.44,0.53,0.03
+Comfort Suites Shreveport,0.39,0.52,0.09
+Budget Host,0.0,0.33,0.67
+Holiday Inn Express Hotel & Suites Bloomington-normal,0.0,0.0,1.0
+Knights Inn - Wilmington,0.11,0.22,0.67
+Pizza Hut,0.24,0.47,0.29
+Comfort Inn Montgomery,0.36,0.6,0.04
+Spinners Tailspin Inn,0.18,0.15,0.67
+Triangle Motel,0.11,0.22,0.67
+Residence Inn By Marriott Hartford Downtown,0.48,0.48,0.04
+Great American Inn Suites,0.19,0.64,0.17
+Hunting Lodge,0.0,0.33,0.67
+Keyser Inn Inc,0.0,0.33,0.67
+Patriots Inn,0.38,0.47,0.15
+Super 8 Indianapolis,0.38,0.59,0.03
+Holiday Inn Express Lubbock South,0.38,0.45,0.17
+Stay Inn,0.04,0.29,0.67
+Southside Motel,0.35,0.48,0.17
+Residence Inn By Marriott Springdale,0.47,0.49,0.04
+La Playa,0.0,0.33,0.67
+Wingate By Wyndham Lagrange,0.46,0.49,0.05
+Bear Cove Inn,0.39,0.46,0.15
+Hyatt House Colorado Springs,0.47,0.51,0.02
+Antlers Inn,0.4,0.5,0.1
+Marylander Hotel Condo,0.39,0.48,0.13
+Drury Inn & Suites Sikeston,0.49,0.46,0.05
+Garden of The Gods Club & Resort,0.51,0.48,0.01
+Sands Central Inn Hot Springs,0.15,0.52,0.33
+Hamton Inn New Orleans Westbank,0.0,0.33,0.67
+Holiday Inn Manhattan 6th Ave - Chelsea,0.3,0.55,0.15
+Vacation Side Travel,0.37,0.3,0.33
+Holiday Inn Express - Hillsboro,0.45,0.51,0.04
+Sky Vue Motel,0.0,0.33,0.67
+Blue Boar Inn,0.47,0.42,0.11
+Hampton Inn Ft Chiswell,0.41,0.54,0.05
+Fitzgerald's Restaurant,0.0,0.5,0.5
+Super 8 Fort Collins,0.37,0.61,0.02
+Inter-hotel Orlï¿½ï¿½ans Nord,0.39,0.58,0.03
+Best Western Rama Inn & Suites,0.0,0.0,1.0
+Clarion Inn Strasburg - Lancaster,0.0,0.33,0.67
+Red Roof Inn Erie,0.46,0.53,0.01
+Holiday Inn Express & Suites South Portland,0.0,0.0,1.0
+The Parkview Memphis,0.0,0.33,0.67
+"Club Quarters, Rockefeller Center",0.11,0.22,0.67
+Hampton Inn Dublin,0.43,0.54,0.03
+Agate Beach Motel,0.47,0.44,0.09
+Newark Budget Inn,0.0,0.33,0.67
+Knights Inn Eau Claire,0.33,0.64,0.03
+Laurel Manor Motel,0.0,0.33,0.67
+Hampton Inn and Suites Annapolis,0.43,0.56,0.01
+Riverside Motel and Cabins,0.0,0.0,1.0
+Mineola Motel,0.28,0.22,0.5
+Towneplace Suites Albany University Area,0.43,0.55,0.02
+Monterey Beach Dunes Inn,0.3,0.68,0.02
+Drury Inn & Suites San Antonio Northwest Medical Center,0.0,0.0,1.0
+Hï¿½ï¿½tel Sezz Paris,0.46,0.5,0.04
+Hudson Hotel - Book Direct,0.0,0.0,1.0
+Super 8 Kansas City Airport,0.27,0.7,0.03
+Best Western Hotel De Neuville,0.44,0.53,0.03
+Mccamly Plaza Hotel,0.39,0.59,0.02
+Wingate By Wyndham Pueblo,0.48,0.5,0.02
+Days Inn Lincolnton,0.28,0.62,0.1
+Hotel Roc Flamingo,0.39,0.58,0.03
+Lexington Inn,0.0,0.33,0.67
+"Nippersink Country Club, Inc.",0.41,0.46,0.13
+Sterling Motel,0.09,0.62,0.29
+Campus Inn & Suites Eugene Downtown,0.36,0.62,0.02
+Days Inn Branson Mo,0.0,0.0,1.0
+Mt. Washington Bed and Breakfast,0.44,0.45,0.11
+Super 8 Metropolis,0.39,0.59,0.02
+Melody Lodge Cabins,0.0,0.33,0.67
+Sand's Motel,0.26,0.41,0.33
+Travelodge Ruther Glen,0.3,0.61,0.09
+Texan Inn,0.0,0.0,1.0
+Hotel Garibaldi,0.42,0.55,0.03
+Lake Raystown Resort Lodge & Conference Center,0.0,0.0,1.0
+Central House,0.0,0.5,0.5
+The Concorde Inn,0.21,0.65,0.14
+Economy Motel,0.0,0.33,0.67
+Hampton Inn Virginia Beach Oceanfront North,0.56,0.43,0.01
+Irish House Hotel,0.0,0.33,0.67
+Clubhouse At River Country Est,0.0,0.5,0.5
+Sleep Inn At Harbour View,0.4,0.57,0.03
+Hotel Lavonia,0.32,0.63,0.05
+Courtyard By Marriott Rockaway Mount Arlington,0.45,0.52,0.03
+Fiesta Inn and Suites,0.16,0.84,0.0
+Hilton Garden Inn Oconomowoc,0.45,0.52,0.03
+P K Motel,0.0,0.33,0.67
+Candlewood Suites Indianapolis Northwest,0.44,0.48,0.08
+Holiday Inn Fond Du Lac,0.42,0.57,0.01
+Arizona Inn of Prescott Valley,0.34,0.64,0.02
+Koehne Dexter Terrie,0.0,0.33,0.67
+Microtel Inn and Suites By Wyndham Burlington,0.36,0.61,0.03
+The Inn At Bella Vista,0.51,0.44,0.05
+Brasstown Valley Golf Club,0.0,0.5,0.5
+Quality Inn Long Beach Airport,0.31,0.67,0.02
+Calloway Inn,0.0,0.33,0.67
+Grandison Bed Breakfast,0.18,0.15,0.67
+Days Inn Tallulah,0.0,0.0,1.0
+Twin Gables of Woodstock,0.38,0.47,0.15
+Happy Tails Hotel & Playland,0.0,0.0,1.0
+Baymont Inn and Suites Boone,0.31,0.67,0.02
+Springhill Suites Marriott Colorado Springs South,0.46,0.47,0.07
+Brightwood Inn Country Inn,0.5,0.42,0.08
+Motel 6 Fort Bragg,0.25,0.66,0.09
+Westernaire Motel,0.22,0.28,0.5
+Super 8 Columbia East,0.37,0.52,0.11
+Holiday Inn Express Hotel and Suites Va Beach Oceanfront,0.56,0.43,0.01
+Hotel Valencia Santana Row,0.48,0.51,0.01
+New York Marriott Marquis,0.36,0.63,0.01
+Holiday Inn Express & Suites Willows,0.18,0.15,0.67
+Hampton Inn Grand Junction Downtown/historic Main Street,0.44,0.53,0.03
+Holiday Inn Express Suites Floresville,0.0,0.33,0.67
+Villager Inn Motel,0.03,0.47,0.5
+Lamothe House,0.45,0.53,0.02
+Dor-shada Resort By The Sea,0.31,0.54,0.15
+Hi-way Inn of Kiowa,0.0,0.33,0.67
+Sleep Inn Slidell,0.39,0.57,0.04
+Knights Inn New Castle/wilmington,0.07,0.53,0.4
+"La Posada Lodge & Casitas, An Ascend Hotel Collection Member",0.03,0.47,0.5
+Comfort Inn Huntingdon,0.44,0.53,0.03
+Mericana Motel,0.0,0.33,0.67
+Hilton Americas-houston,0.41,0.47,0.12
+Casino Queen Rv Park,0.0,0.0,1.0
+Quality Inn and Suites Irvine Spectrum,0.35,0.63,0.02
+Marriott Springhill Marina,0.0,0.33,0.67
+Hampton Inn Suites Columbus,0.39,0.44,0.17
+Milliken Creek Inn,0.0,0.0,1.0
+Intown Suites Nashville North,0.17,0.5,0.33
+The Desmond House Bed & Breakfast,0.0,0.33,0.67
+The Booker-lewis,0.4,0.45,0.15
+Shamrock Hill Inn,0.0,0.33,0.67
+Econo Lodge Bellmawr,0.34,0.63,0.03
+Crossland Economy Studios - Lake Charles - Sulphur,0.25,0.72,0.03
+Hotel Columbia,0.5,0.46,0.04
+Raton Pass Inn,0.45,0.42,0.13
+Sumner Motor Inn,0.38,0.45,0.17
+Days Inn-amarillo-medical Ctr,0.0,0.0,1.0
+Best Western Silicon Valley Inn,0.44,0.52,0.04
+Days Inn Lanham Washington Dc,0.36,0.61,0.03
+Cliffs 7305 By Redawning,0.42,0.45,0.13
+La Quinta Inn Auburn Worcester,0.38,0.61,0.01
+Dockers Inn,0.45,0.54,0.01
+Spring Bay Inn,0.0,0.33,0.67
+Candlewood Suites Eugene Springfield,0.79,0.18,0.03
+Anaheim Marriott Suites,0.48,0.51,0.01
+Monarch Inn,0.32,0.65,0.03
+Yakima Inn,0.04,0.29,0.67
+Homeplace Inn and Suites,0.0,0.0,1.0
+Innpoints Worldwide,0.0,0.0,1.0
+Wingate By Wyndham Chantilly / Dulles Airport,0.46,0.51,0.03
+Days Inn and Suites Albany,0.22,0.76,0.02
+Holiday Inn Express San Clemente,0.47,0.52,0.01
+The Westin Buckhead,0.45,0.51,0.04
+Hyatt Place Atlanta/alpharetta/north Point Mall,0.46,0.53,0.01
+Eldorado Inn,0.35,0.5,0.15
+Americas Best Value Inn - Medical Center/airport,0.4,0.57,0.03
+Outside Inn,0.11,0.39,0.5
+Point Randall Resort,0.5,0.41,0.09
+Courtyard By Marriott Downtown Boise,0.46,0.51,0.03
+The Abbey Resort,0.51,0.45,0.04
+Crossroads Hotel,0.04,0.29,0.67
+Helios Resort,0.17,0.33,0.5
+Best Western Plus Circle Inn,0.44,0.48,0.08
+Fairfield Inn and Suites By Marriott Idaho Falls,0.46,0.5,0.04
+Greenstay Hotel and Suites,0.48,0.49,0.03
+Pine Shadows Motel,0.0,0.33,0.67
+Beach Cove 411 Tower A Sierra's 1 Bedroom Condo By Prista Management,0.46,0.51,0.03
+Residence Inn By Marriott Fort Lauderdale Weston,0.48,0.5,0.02
+Petretti Apartments,0.17,0.33,0.5
+Extended Stay America - Bloomington - Normal,0.0,0.0,1.0
+40 Berkeley Hostel,0.37,0.62,0.01
+La Quinta Inn & Suites Chicago Tinley Park,0.0,0.0,1.0
+Welcome Inn Apartments,0.0,0.33,0.67
+Candlewood Suites Lexington,0.47,0.48,0.05
+Quinta Real Acapulco,0.45,0.52,0.03
+Forest Hill Inn,0.33,0.45,0.22
+Clarion Suites Philadelphia,0.3,0.53,0.17
+Sportsmen's Lodge,0.35,0.64,0.01
+Port-o-call Motel,0.0,0.33,0.67
+Drury Inn and Suites Columbus Convention Center,0.5,0.49,0.01
+Avalon Hotel Group,0.0,0.33,0.67
+Elba Sara Beach & Golf Resort,0.42,0.53,0.05
+Good Nite Inn Rohnert Park,0.37,0.62,0.01
+The Merritt Center and Lodge,0.18,0.15,0.67
+Rustic Inn,0.3,0.55,0.15
+Liberty Lodge,0.0,0.33,0.67
+Comfort Suites Fort Pierce,0.46,0.51,0.03
+Twin Pines Motel,0.22,0.6,0.18
+Best Western Hartford Hotel & Suites,0.43,0.54,0.03
+Courtyard By Marriott,0.15,0.18,0.67
+La Quinta Inn and Suites Meridian,0.38,0.6,0.02
+Residence Inn By Marriott Tucson Williams Centre,0.49,0.43,0.08
+Hampton Inn Rockford,0.48,0.44,0.08
+Red Roof Inn Cedar Rapids,0.24,0.74,0.02
+Lewis River Inn,0.42,0.52,0.06
+Tmc Resort Rentals,0.0,0.33,0.67
+Homewood Suites By Hilton Albuquerque - Journal Center,0.45,0.51,0.04
+Desert Motel Restaurant,0.18,0.15,0.67
+Hyatt Dulles,0.52,0.42,0.06
+West Side Motel,0.0,0.5,0.5
+Casa Del Mar Inn Bandb,0.43,0.55,0.02
+Holiday Inn Express and Suites Gahanna/columbus Airport E,0.45,0.52,0.03
+Rodeway Inn Near Venice Beach,0.0,0.33,0.67
+Citrus Hills Lodge Hernando,0.0,0.0,1.0
+Econo Lodge Miles City,0.41,0.56,0.03
+Atlanta Marriott Northwest At Galleria,0.0,0.33,0.67
+Ibis Wuerzburg City,0.41,0.56,0.03
+Hotel Eugï¿½ï¿½ne En Ville,0.47,0.5,0.03
+Super 8 Chicago O'hare Airport,0.28,0.22,0.5
+Comfort Inn and Suites,0.45,0.53,0.02
+Pine Motel,0.04,0.29,0.67
+Nesco Manor Hotel,0.0,0.33,0.67
+Busy B Ranch,0.0,0.33,0.67
+Best Western University Inn & Suites,0.45,0.5,0.05
+Rodeway Inn Airport,0.0,0.0,1.0
+Starwood Resorts Hotel,0.0,0.33,0.67
+City Express Irapuato,0.44,0.52,0.04
+Days Inn Statesville,0.0,0.0,1.0
+The Lake Point Conference Center,0.38,0.45,0.17
+Super 8 Gretna,0.31,0.59,0.1
+Royal Dutch Inn,0.3,0.37,0.33
+Sea View Motel,0.43,0.52,0.05
+Castle Kona Reef,0.38,0.59,0.03
+Brookside Motel,0.0,0.33,0.67
+Acorn Motor Inn,0.38,0.53,0.09
+Torian Plum By Wyndham Vacation Rentals,0.0,0.33,0.67
+The Savoy Hotel,0.48,0.5,0.02
+Holiday Inn Express & Suites Crossville,0.45,0.51,0.04
+Holiday Inn Express Hotel and Suites Hesperia,0.41,0.56,0.03
+Best Western Saint-etienne Aeroport,0.42,0.54,0.04
+Mission Sands Vacation Rentals,0.0,0.0,1.0
+River Oaks Golf Villas,0.0,0.33,0.67
+Holiday Inn Victorville,0.44,0.53,0.03
+Quality Inn and Suites Big Rapids,0.41,0.56,0.03
+Residence Inn Burlington Colchester,0.45,0.46,0.09
+Wakonda Hotel & Bar,0.0,0.33,0.67
+Inturotel Esmeralda Park,0.49,0.47,0.04
+Knights Inn Carmel Hill,0.34,0.64,0.02
+Five Seasuns Bed & Breakfast Inn,0.37,0.49,0.14
+Summit At Big Sky,0.47,0.47,0.06
+Holiday Inn Express Hotel and Suites Cambridge,0.43,0.56,0.01
+Breakers Hotel,0.06,0.44,0.5
+Holiday Inn Express Hotel & Suites Emporia,0.45,0.52,0.03
+The Dec,0.0,0.33,0.67
+Lazy T Motel,0.08,0.42,0.5
+Cherokee Lodge Bed and Breakfast,0.48,0.5,0.02
+Beach Haven Vacation Rental House,0.0,0.0,1.0
+Sonoma Coast Villa Spa,0.46,0.37,0.17
+Ambassador Inn Albuquerque,0.26,0.45,0.29
+Quality Inn Gulfport,0.33,0.64,0.03
+Super 8 Van Horn,0.0,0.0,1.0
+Residence Inn By Marriott Deptford,0.43,0.54,0.03
+Rock A Bye Inn,0.0,0.33,0.67
+Holiday Inn Express Hotel and Suites Meadowlands Area,0.47,0.5,0.03
+Sky-lit Motel,0.06,0.44,0.5
+Simoni's Fremont Inn,0.0,0.33,0.67
+Elk Springs Resort,0.48,0.51,0.01
+Extended Stay America Grand Rapids - Kentwood,0.0,0.5,0.5

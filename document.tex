@@ -622,23 +622,23 @@
 	\fbox{\begin{minipage}{18em}
 	%\begin{algorithm}
 	\begin{algorithmic}[1]
-	\If {$b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i}) \le b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i})$} 
+	\If {$b\textsuperscript{A}\textsubscript{X}(x) \le b\textsuperscript{B}\textsubscript{X}(x)$} 
 		\State $Swap(\omega\textsuperscript{A}\textsubscript{X},\omega\textsuperscript{B}\textsubscript{X})$ 
 	\EndIf
 	
-	\If {$u\textsuperscript{B}\textsubscript{X}>(b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i}) - b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i}))$}
+	\If {$u\textsuperscript{B}\textsubscript{X}>(b\textsuperscript{A}\textsubscript{X}(x) - b\textsuperscript{B}\textsubscript{X}(x))$}
 	
-		\State $u\textsuperscript{B}\textsubscript{X}=u\textsuperscript{B}\textsubscript{X} - (b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i}) - b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i}))$
+		\State $u\textsuperscript{B}\textsubscript{X}=u\textsuperscript{B}\textsubscript{X} - (b\textsuperscript{A}\textsubscript{X}(x) - b\textsuperscript{B}\textsubscript{X}(x))$
 	
-		\State $b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i}) = b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i})$
+		\State $b\textsuperscript{B}\textsubscript{X}(x) = b\textsuperscript{A}\textsubscript{X}(x)$
 	
 	\Else 
 	
-		\State $b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i})=b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i}) + u\textsuperscript{B}\textsubscript{X}$
+		\State $b\textsuperscript{B}\textsubscript{X}(x)=b\textsuperscript{B}\textsubscript{X}(x) + u\textsuperscript{B}\textsubscript{X}$
 	
 		\State $u\textsuperscript{B}\textsubscript{X}=0$
 	
-		\State $b\textsuperscript{A}\textsubscript{X}(x\textsubscript{i})=b\textsuperscript{B}\textsubscript{X}(x\textsubscript{i})$
+		\State $b\textsuperscript{A}\textsubscript{X}(x)=b\textsuperscript{B}\textsubscript{X}(x)$
 	
 	\EndIf
 	

@@ -7,6 +7,7 @@ reputazione  = {}
 multinomiale = {}
 binomiale    = {}
 utenti       = {}
+binomialiRaccomandazione={}
 read         = pd.read_csv('source/hotel.csv') # lettura del file csv contenente dati su moltissimi hotel
 
 W = 2 # costante necessaria ed è uguale a 2 perché indicato da slides
@@ -46,7 +47,7 @@ def calcoloVicinato(utente,hotelVotato):
 	vicinato=[]
 	for key,value in utenti.items():
 		if key != utente:
-			if hotelVotato in utenti[key]['hotelVotati']:
+			if hotelVotato in list(utenti[key]['hotelVotati'].keys()):
 				vicinato.append(key)
 	return vicinato
 
@@ -60,6 +61,7 @@ def punteggioMedioUtente(utente):
 
 # Ritorna il punteggio dato da utente a hotel. Se sono presenti più voti dati da un utente allo stesso hotel, allora viene restituito quello medio
 def punteggioUtenteHotel(utente,hotel):
+	'''
 	punteggio=0.0
 	numeroVoti=0
 	for index, row in read.iterrows():
@@ -68,13 +70,15 @@ def punteggioUtenteHotel(utente,hotel):
 					if not(math.isnan(row['reviews.rating'])):
 						punteggio+=row['reviews.rating']
 						numeroVoti+=1
-	return round(punteggio/numeroVoti)
+	return round(punteggio/numeroVoti,2)
+	'''
+	return utenti[utente]['hotelVotati'][hotel][2]
 
 # ritorna una lista con gli hotel votati sia da utente1 che da utente2
 def hotelVotatiDaUtenti(utente1,utente2):
 	hotel=[]
-	lista1=utenti[utente1]['hotelVotati']
-	lista2=utenti[utente2]['hotelVotati']
+	lista1=list(utenti[utente1]['hotelVotati'].keys())
+	lista2=list(utenti[utente2]['hotelVotati'].keys())
 	for i in range(len(lista1)):
 		if lista1[i] in lista2:
 			hotel.append(lista1[i])
@@ -109,9 +113,8 @@ def somiglianza(utente1,utente2):
 def predizione(utente,hotel):
 	predizione=punteggioMedioUtente(utente)
 	predizione/=10 # per normalizzare il voto che se fosse di media 10 allora viene 0.1 se no viene troppo alto e supera 1 già il punteggio
-	print(predizione)
 	vicinato=calcoloVicinato(utente,hotel)
-	k=1/vicinatoDim(vicinato) # fattore di normalizzazione
+	k=1/(vicinatoDim(vicinato)*10) # fattore di normalizzazione
 	operando2=0.0
 	for i in range(len(vicinato)):
 		operando2+=((somiglianza(utente,vicinato[i]))*(punteggioUtenteHotel(vicinato[i],hotel)-punteggioMedioUtente(vicinato[i])))
@@ -126,12 +129,29 @@ def binomialeUtenteHotel(utente,hotel):
 	binomiale={'b':0.0,'d':0.0,'u':0.0}
 	somma=0.0
 	vicinato=calcoloVicinato(utente,hotel)
-	for i in range(len(vicinato)):
-		somma+=numeroHotelVotatiInComune(utente,vicinato[i])
-	binomiale['u']=round(W/(W+somma),2)
-	binomiale['b']=round(77.31-binomiale['u'],2) #predizione(utente,hotel)
-	binomiale['d']=round(1-binomiale['b']-binomiale['u'],2)
+	if vicinatoDim(vicinato)!=0:
+		for i in range(len(vicinato)):
+			somma+=numeroHotelVotatiInComune(utente,vicinato[i])
+		pred=predizione(utente,hotel)
+		if pred>=round(W/(W+somma),2):
+			binomiale['u']=round(W/(W+somma),2)
+			binomiale['b']=round(predizione(utente,hotel)-binomiale['u'],2)
+			binomiale['d']=round(1-binomiale['b']-binomiale['u'],2)
+		else:
+			binomiale['u']=0.0
+			binomiale['b']=0.0
+			binomiale['d']=1.0
+	else:
+		binomiale['u']=0.0
+		binomiale['b']=0.0
+		binomiale['d']=1.0 #se non c'è un vicinato allora non ha senso raccomandare e quindi d sarà 1 e resto 0
 	return binomiale
+
+def calcoloBinomialeRaccomandazione():
+	for key, value in utenti.items():
+		for k,v in value['hotelVotati'].items():
+			chiave=str(key)+"/$/$/"+str(k)
+			binomialiRaccomandazione[chiave]=binomialeUtenteHotel(key,k)
 
 #creazione dei dizionari per ospitare i punteggi di reputazione sul dataset
 for index, row in read.iterrows():
@@ -159,29 +179,30 @@ for key,value in multinomiale.items():
 for key,value in multinomiale.items():
 	calcolaBinomiale(key,value,binomiale)
 
-'''
-# salvataggio su csv dei risultati
-with open('output/rep_bin.csv', 'w') as csvfile:
-    fieldnames = ['hotel', 'b', 'd', 'u']
-    writer     = csv.DictWriter(csvfile, fieldnames=fieldnames)
-
-    writer.writeheader()
-
-    for key,value in binomiale.items():
-    	writer.writerow({'hotel':key,'b':value['b'],'d':value['d'],'u':value['u']})
-'''
 # calcolo del punteggio medio per utente
 for index, row in read.iterrows():
-    utenti[row['reviews.username']]={'punteggio':0, 'numeroVoti':0, 'media':0.0, 'hotelVotati':[]}
+    utenti[row['reviews.username']]={'punteggio':0, 'numeroVoti':0, 'media':0.0, 'hotelVotati':{}}
 
 # estrapolazione dei punteggi di reputazione dal dataset
 for index, row in read.iterrows():
 	if not(math.isnan(row['reviews.rating'])):
 		utenti[row['reviews.username']]['punteggio']+=row['reviews.rating']
 		utenti[row['reviews.username']]['numeroVoti']+=1
-		if row['name'] not in utenti[row['reviews.username']]['hotelVotati']:
-			utenti[row['reviews.username']]['hotelVotati'].append(row['name']) # mi serve per i calcoli futuri, per scoprire i vari vicinati degli utenti
+		if row['name'] in utenti[row['reviews.username']]['hotelVotati']:
+			utenti[row['reviews.username']]['hotelVotati'][row['name']][0]+=row['reviews.rating']
+			utenti[row['reviews.username']]['hotelVotati'][row['name']][1]+=1
+		else:
+			utenti[row['reviews.username']]['hotelVotati'][row['name']]=[row['reviews.rating'],0,0.0]
+		#if row['name'] not in utenti[row['reviews.username']]['hotelVotati']:
+			#utenti[row['reviews.username']]['hotelVotati'].append(row['name']) # mi serve per i calcoli futuri, per scoprire i vari vicinati degli utenti
 	
+for key,value in utenti.items():
+	for k,v in value['hotelVotati'].items():
+		if v[1]!=0:
+			v[2]=round(v[0]/v[1],2)
+		else:
+			v[2]=0.0
+
 # calcolo del punteggio medio per ogni utente
 for key,value in utenti.items():
 	if value['numeroVoti']!=0:
@@ -189,7 +210,29 @@ for key,value in utenti.items():
 	else:
 		value['media']=0.0
 
-print(predizione("A Traveler","Hotel Russo Palace"))
+
+
+calcoloBinomialeRaccomandazione()
+
+# salvataggio su csv dei risultati di repuazione
+with open('output/rep_bin.csv', 'w', encoding="utf-8") as csvfile:
+    fieldnames = ['hotel', 'brep', 'drep', 'urep']
+    writer     = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+    writer.writeheader()
+
+    for key,value in binomiale.items():
+    	writer.writerow({'hotel':key,'brep':value['b'],'drep':value['d'],'urep':value['u']})
+
+# salvataggio su csv dei risultati di raccomandazione
+with open('output/rec_bin.csv', 'w', encoding="utf-8") as csvfile:
+    fieldnames = ['utente/$/$/hotel', 'brec', 'drec', 'urec']
+    writer     = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+    writer.writeheader()
+
+    for key,value in binomialiRaccomandazione.items():
+    	writer.writerow({'utente/$/$/hotel':key,'brec':value['b'],'drec':value['d'],'urec':value['u']})
 
 
 
