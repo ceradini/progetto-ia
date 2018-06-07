@@ -1,6 +1,7 @@
 import pandas as pd # serve per leggere i file csv
 import csv          # serve per scrivere su csv
 import math         # serve per il NaN number
+import copy         # serve per la copia profonda
 
 # dizionari con i dati dei dataset
 reputazione={}
@@ -14,7 +15,9 @@ readrec=pd.read_csv('output/rec_bin.csv') # lettura del file csv contenente dati
 raccomandazioniFinaliDict={}
 
 # preso il valore di raccomandazione e il punteggio di reputazione, applica il casmin per fondere i risultati in un'unica opinione binomiale
-def casMin(punteggioA,punteggioB):
+def casMin(rec,rep):
+	punteggioA=copy.deepcopy(rec)
+	punteggioB=copy.deepcopy(rep)
 	if punteggioA['b']<=punteggioB['b']:
 		# faccio lo swap
 		temp=punteggioA
@@ -82,6 +85,7 @@ for index, row in readrep.iterrows():
 for index, row in readrec.iterrows():
     raccomandazione[row['utente/$/$/hotel']]={'b':row['brec'],'d':row['drec'],'u':row['urec']}
 
+
 calcolaCasMin()
 calcolaVincoliSoft()
 
@@ -129,5 +133,4 @@ with open('output/finale.csv', 'w', encoding="utf-8") as csvfile:
 
     for key,value in raccomandazioniFinaliDict.items():
     	writer.writerow({'utente':key,'hotelRacCasMin':value['hotelCasMin'],'hotelRacVincoli':value['hotelVincoli']})
-
 
