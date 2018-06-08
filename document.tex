@@ -827,6 +827,73 @@
 	
 	\hypertarget{header-n284}{%
 		\section{La nostra implementazione}\label{header-n284}}
+		Il gruppo ha implementato degli script in Python per la realizzazione della logica applicativa
+		e un'applicazione web per la visualizzazione dei risultati.
+		
+		\subsection{Script in Python}
+		\subsubsection{Reperimento del codice}
+		Il codice sorgente dell'applicazione è reperibile sulla repository GitHub al seguente link: .
+		\subsubsection{Dataset di input}
+		Il gruppo, dopo un'approfondita ricerca, ha selezionato un dataset di utenti e hotel che ha ritenuto opportuno per il progetto. 
+		Tale dataset si trova all'interno della cartella ``source". Il dataset contiene recensioni di utenti per degli hotel e i dati utili
+		sono i seguenti:
+		\begin{itemize}
+			\item \textbf{name}: nome dell'hotel;
+			\item \textbf{reviews.rating}: punteggio da 1 a 10 attribuito dall'utente all'hotel;
+			\item \textbf{reviews.username}: nome utente dell'utente recensore.
+		\end{itemize}
+		
+		\subsubsection{Logica applicativa}
+		Il gruppo ha realizzato due script PHP:
+		\begin{enumerate}
+			\item \textit{tableConstruct.py}: tale script si occupa di:
+				\begin{itemize}
+					\item prelevare i dati descritti nella sezione precedente dal dataset;
+					\item inserire tali dati in dizionari opportunamente costruiti;
+					\item manipolare i dati per ricavare i punteggi di reputazione di ogni hotel;
+					\item manipolare i dati per ricavare i valori di raccomandazione per ogni coppia utente/hotel;
+					\item convertire i punteggi di reputazione in opinioni soggettive binomiali;
+					\item convertire i valori di raccomandazione in opinioni soggettive binomiali;
+					\item memorizzare le opinioni soggettive ottenute in dei dataset (\textit{/output/rep_bin.csv} e 
+					\textit{/output/rec_bin.csv}).
+				\end{itemize}				 
+			\item \textit{computeOutput.py}: tale script si occupa di:
+				\begin{itemize}
+					\item prelevare i dati dai dataset contenenti le opinioni soggettive;
+					\item inserire tali dati in dizionari opportunamente costruiti;
+					\item combinare le opinioni soggettive dei punteggi di reputazione con le opinioni soggettive dei valori di
+					raccomandazione con applicazione di CasMin e vincoli soft;
+					\item memorizzare i risultati ottenuti in un dataset finale (\textit{/output/finale.csv}). 
+				\end{itemize}
+		\end{enumerate}
+		
+		\subsubsection{Dataset di output}
+		I dataset di output sono contenuti nella cartella ``output" e sono i seguenti:
+		\begin{itemize}
+			\item \textit{rec_bin.csv}: contiene i valori di raccomandazione, per ogni coppia utente/hotel, espressi come opinioni soggettive
+			binomiali;
+			\item \textit{rep_bin.csv}: contiene i punteggi di reputazione, per ogni hotel, espressi come opinioni soggettive
+			binomiali;
+			\item \textit{casmin.csv}: contiene i consigli CasMin dati dalla combinazione dei valori di raccomandazione e dei punteggi di
+			reputazione, per ogni coppia utente/hotel, espressi come opinioni soggettive binomiali;
+			\item \textit{vincoliSoft.csv}: contiene le somme risultanti dalla combinazione dei valori di raccomandazione e dei punteggi di
+			reputazione, utilizzando i vincoli soft, per ogni coppia utente/hotel;
+			\item \textit{finale.csv}: contiene, per ogni utente, l'hotel consigliato da CasMin e quello raccomandato dai vincoli
+			soft.
+		\end{itemize}
+		
+	\subsection{Applicazione web}
+	\subsubsection{Reperimento dell'applicazione web}
+	L'applicazione web è disponibile al seguente link: .
+	
+	\subsubsection{Home Page}
+	
+	\subsubsection{Tabelle sorgenti}
+	
+	\subsubsection{Risultati}
+	
+	\subsubsection{Ricerca dettagliata}
+	
 	
 	\hypertarget{header-n287}{%
 		\section{Bibliografia}\label{header-n287}}
