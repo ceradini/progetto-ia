@@ -765,7 +765,7 @@
 	Una volta costruiti i vincoli tra le entità utilizzando i valori di belief dei sistemi di raccomandazione e reputazione sarà possibile capire quale è l'associazione migliore che massimizza la preferenza tra le entità convolte.
     \newline
     
-    Per ottenere il risultato su \texttit{n} vincoli, basterà combinare le preferenze tra le \texttit{n} entità attraverso l'operatore somma, la preferenza migliore sarà quella massima. 
+    Per ottenere il risultato su \textit{n} vincoli, basterà combinare le preferenze tra le \textit{n} entità attraverso l'operatore somma, la preferenza migliore sarà quella massima. 
 
 	
 	\hypertarget{header-n241}{%
@@ -832,7 +832,9 @@
 		
 		\subsection{Script in Python}
 		\subsubsection{Reperimento del codice}
-		Il codice sorgente dell'applicazione è reperibile sulla repository GitHub al seguente link: .
+		Il codice sorgente dell'applicazione è reperibile sulla repository GitHub al seguente link: \url{http://github.com/bmxitalia
+		/ProgettoIA}.
+		
 		\subsubsection{Dataset di input}
 		Il gruppo, dopo un'approfondita ricerca, ha selezionato un dataset di utenti e hotel che ha ritenuto opportuno per il progetto. 
 		Tale dataset si trova all'interno della cartella ``source". Il dataset contiene recensioni di utenti per degli hotel e i dati utili
@@ -846,7 +848,7 @@
 		\subsubsection{Logica applicativa}
 		Il gruppo ha realizzato due script PHP:
 		\begin{enumerate}
-			\item \textit{tableConstruct.py}: tale script si occupa di:
+			\item \textbf{\textit{tableConstruct.py}}: tale script si occupa di:
 				\begin{itemize}
 					\item prelevare i dati descritti nella sezione precedente dal dataset;
 					\item inserire tali dati in dizionari opportunamente costruiti;
@@ -854,10 +856,10 @@
 					\item manipolare i dati per ricavare i valori di raccomandazione per ogni coppia utente/hotel;
 					\item convertire i punteggi di reputazione in opinioni soggettive binomiali;
 					\item convertire i valori di raccomandazione in opinioni soggettive binomiali;
-					\item memorizzare le opinioni soggettive ottenute in dei dataset (\textit{/output/rep_bin.csv} e 
-					\textit{/output/rec_bin.csv}).
+					\item memorizzare le opinioni soggettive ottenute in dei dataset (\textit{/output/rep\_bin.csv} e 
+					\textit{/output/rec\_bin.csv}).
 				\end{itemize}				 
-			\item \textit{computeOutput.py}: tale script si occupa di:
+			\item \textbf{\textit{computeOutput.py}}: tale script si occupa di:
 				\begin{itemize}
 					\item prelevare i dati dai dataset contenenti le opinioni soggettive;
 					\item inserire tali dati in dizionari opportunamente costruiti;
@@ -870,21 +872,24 @@
 		\subsubsection{Dataset di output}
 		I dataset di output sono contenuti nella cartella ``output" e sono i seguenti:
 		\begin{itemize}
-			\item \textit{rec_bin.csv}: contiene i valori di raccomandazione, per ogni coppia utente/hotel, espressi come opinioni soggettive
+			\item \textbf{\textit{rec\_bin.csv}}: contiene i valori di raccomandazione, per ogni coppia utente/hotel, espressi come opinioni
+			 soggettive
 			binomiali;
-			\item \textit{rep_bin.csv}: contiene i punteggi di reputazione, per ogni hotel, espressi come opinioni soggettive
+			\item \textbf{\textit{rep\_bin.csv}}: contiene i punteggi di reputazione, per ogni hotel, espressi come opinioni soggettive
 			binomiali;
-			\item \textit{casmin.csv}: contiene i consigli CasMin dati dalla combinazione dei valori di raccomandazione e dei punteggi di
+			\item \textbf{\textit{casmin.csv}}: contiene i consigli CasMin dati dalla combinazione dei valori di raccomandazione e dei
+			 punteggi di
 			reputazione, per ogni coppia utente/hotel, espressi come opinioni soggettive binomiali;
-			\item \textit{vincoliSoft.csv}: contiene le somme risultanti dalla combinazione dei valori di raccomandazione e dei punteggi di
+			\item \textbf{\textit{vincoliSoft.csv}}: contiene le somme risultanti dalla combinazione dei valori di raccomandazione e dei
+			 punteggi di
 			reputazione, utilizzando i vincoli soft, per ogni coppia utente/hotel;
-			\item \textit{finale.csv}: contiene, per ogni utente, l'hotel consigliato da CasMin e quello raccomandato dai vincoli
+			\item \textbf{\textit{finale.csv}}: contiene, per ogni utente, l'hotel consigliato da CasMin e quello raccomandato dai vincoli
 			soft.
 		\end{itemize}
 		
 	\subsection{Applicazione web}
 	\subsubsection{Reperimento dell'applicazione web}
-	L'applicazione web è disponibile al seguente link: .
+	L'applicazione web è disponibile al seguente link: \url{http://progettoiaunipd.altervista.org/index.php}.
 	
 	\subsubsection{Home Page}
 	
