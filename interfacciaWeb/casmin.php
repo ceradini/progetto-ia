@@ -13,11 +13,11 @@
         <li class="breadcrumb-item">
           <a href="index.php">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">risultati con opinioni soggettive</li>
+        <li class="breadcrumb-item active">risultati con algoritmo di CasMin</li>
       </ol>
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-bar-chart"></i> Risultati utilizzando opinione soggettive e CasMin</div>
+          <i class="fa fa-bar-chart"></i> Risultati utilizzando algoritmo CasMin</div>
         <div class="card-body">
           <div class="table-responsive">
             <div id="casminTable"></div>
@@ -54,6 +54,7 @@
     <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js"></script>
+    <script src="js/anti-banner.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/casmin.js"></script>

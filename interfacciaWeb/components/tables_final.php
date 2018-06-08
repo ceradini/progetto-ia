@@ -7,7 +7,7 @@
   <thead>
     <tr>
       <td>Username</td>
-      <td>Racc. opinione soggettiva</td>
+      <td>Racc. CasMin</td>
       <td>Racc. vincoli soft</td>
     </tr>
   </thead>
