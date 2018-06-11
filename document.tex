@@ -88,7 +88,7 @@
 		\item
 		sistemi di reputazione: forniscono alla comunità informazioni
 		riguardanti risorse che l'utente conosce già. I punteggi di
-		reputazione indicano quanto un oggetto è piaciuto ad un utente.
+		reputazione indicano quanto un oggetto è piaciuto a degli utente.
 	\end{itemize}
 	
 	Per fornire delle raccomandazioni più accurate è possibile integrare i
@@ -137,7 +137,7 @@
 		\subsection{Opinioni soggettive}\label{header-n47}}
 	
 	In questa sezione viene introdotta la notazione e la formazione delle
-	opinioni soggettive usate per fondere gusto e fiducia. Successivamente
+	opinioni soggettive, usate per fondere gusto e fiducia. Successivamente
 	viene descritto un metodo per mappare dei punteggi multinomiali in
 	opinioni binomiali. I punteggi multinomiali sono la forma di feedback più comune
 	restituita dai sistemi di reputazione e dai sistemi di raccomandazione.
@@ -178,10 +178,10 @@
 	
 	\begin{itemize}
 		\item
-		Opinioni multinomiali: il vettore di belief $b\textsubscript{X}$ viene
+		Opinioni \textbf{multinomiali}: il vettore di belief $b\textsubscript{X}$ viene
 		applicato solamente agli elementi $x\textsubscript{i}$ appartenenti a $X$, e non in $R(X)$;
 		\item
-		Opinioni binomiali: vengono applicate ai frame binari e hanno una
+		Opinioni \textbf{binomiali}: vengono applicate ai frame binari e hanno una
 		rappresentazione speciale. Indichiamo con $X = \{x,\overline{x}\}$ un frame
 		binario. Un'opinione binomiale sulla verità dello stato $x$ è la
 		quadrupla ordinata $\omega\textsubscript{X}=(b,d,u,a)$, dove:
@@ -464,7 +464,7 @@
 	argomento. In questo modo l'incertezza viene ridotta, mentre la massa di
 	credenza del livello più basso viene incrementata.
 	
-	Questo operatore gode della proprietà conservativa. Questa proprietà è
+	Questo operatore gode della \textbf{proprietà conservativa}. Questa proprietà è
 	utile a fare in modo che un oggetto venga raccomandato solo se ha un
 	alto valore di raccomandazione e un alto punteggio di reputazione.
 	CasMin fornisce un modello di combinazione conservativo poiché prende il
@@ -673,7 +673,7 @@
 	Applicando l'algoritmo sopra riportato alle due opinioni binomiali
 	riportate in tabella si ottengono i valori di belief in ultima
 	colonna. Si può notare che l'hotel che verrà consigliato dal sistema è
-	il terzo. Infatti il valore ottenuto dal CasMin è 0.81 che significa che
+	il terzo. Infatti, il valore ottenuto dal CasMin è 0.81 che significa che
 	entrambi i sistemi, di reputazione e raccomandazione, hanno restituito
 	buoni punteggi per l'hotel 3. Nel caso dell'hotel 1 si può vedere come,
 	nonostante ci sia un buon punteggio di reputazione (0.81), l'operatore
@@ -710,15 +710,15 @@
 	\hypertarget{header-n227}{%
 		\subsection{Introduzione}\label{header-n227}}
 	
-	Il gruppo ha tuttavia pensato ad un'alternativa alla soluzione proposta da Josang ed il suo team per combinare i risultati ottenuti dai sistemi di reputazione e sistemi di raccomandazione (ossia l'utilizzo delle opinioni soggettive e dell'algoritmo di CasMin).
+	Il gruppo ha tuttavia pensato ad un'alternativa alla soluzione proposta da Josang e i sui colleghi per la combinazione dei due sistemi.
 
-    La nostra proposta è quella di utilizzare il formalismo dei vincoli soft (SCSP) per combinare le preferenze espresse dai due tipi di sistemi, quello di raccomandazione e quello di reputazione. Per modellare le preferenze sui vincoli abbiamo adottato una soluzione proposta in un articolo di ricerca (From soft constraints to bipolar preferences: modelling framework and solving issues, vedi bibliografia) e per la quale va il nostro ringraziamento.
+    Si propone di utilizzare il formalismo dei vincoli soft (SCSP) per combinare le preferenze espresse dai due tipi di sistemi, quello di raccomandazione e quello di reputazione. Per modellare le preferenze sui vincoli è stata adottata una soluzione proposta in un articolo di ricerca (From soft constraints to bipolar preferences: modelling framework and solving issues, vedi bibliografia).
 
 	
 	\hypertarget{header-n230}{%
 		\subsection{Descrizione}\label{header-n230}}
 	
-	I vincoli soft saranno modellati utilizzando utilizzando il formalismo delle preferenze positive. Dove la struttura della preferenza positiva sarà così modellata:
+	I vincoli soft vengono modellati utilizzando il formalismo delle preferenze positive, dove la struttura della preferenza positiva sarà così modellata:
 	\newline
 	
     $(P, +\textsubscript{p}, \times\textsubscript{p} \bot\textsubscript{p}, \top\textsubscript{p})$
@@ -739,7 +739,7 @@
 	\end{itemize}
 	
 
-    Per l'applicazione al nostro caso si utilizzerà la seguente struttura:
+    Per l'applicazione al caso analizzato si utilizzerà la seguente struttura:
     \newline
     
     $(R\textsuperscript{+}, max, +, 0, +\infty)$
@@ -748,37 +748,34 @@
 	Quindi la minima preferenza che può essere assegnata è 0. Le preferenze saranno aggregate attraverso la somma e saranno successivamente comparate attraverso l'operatore di massimo. 
 	\newpage
 	
-	I vincoli saranno ottenuti mettendo in relazione le entità facenti parte del sistema e collegandole tra loro utilizzando i risultati dai due sistemi (reputazione e raccomandazione) nel seguente modo:
+	I vincoli saranno ottenuti mettendo in relazione le entità facenti parte del sistema e collegandole tra loro utilizzando i risultati  restituiti dai due sistemi (reputazione e raccomandazione) nel seguente modo:
 	
 	\begin{enumerate}
 	    \item 
 	    I \textbf{valori di belief ottenuti dal sistema di reputazione} vengono associati ad ogni vincolo. 
 
-        Potrebbe essere (come nel caso dell'esempio) che un'entità in un sistema non abbia un punteggio di reputazione perché non viene considerata dal sistema (ad esempio nel caso di utenti che votano degli hotel: il sistema potrebbe tracciare solo i voti che gli utenti danno agli hotel e non viceversa) ed in questo caso il valore di reputazione assegnato a questa entità deve essere uguale per tutto il dominio (nel nostro caso 1). È bene considerare che sarà possibile modificare questo valore in futuro nel momento in cui si riesca ad ottenere punteggi di reputazione anche per quelle entità che prima non venivano valutate.
+        Potrebbe essere (come nel caso dell'esempio) che un'entità in un sistema non abbia un punteggio di reputazione perché non viene considerata dal sistema (ad esempio nel caso di utenti che votano degli hotel, il sistema potrebbe tracciare solo i voti che gli utenti danno agli hotel e non viceversa) ed in questo caso il valore di reputazione assegnato a questa entità deve essere uguale per tutto il dominio (nel caso analizzato 1). È bene considerare che sarà possibile modificare questo valore in futuro, nel momento in cui si riesca ad ottenere punteggi di reputazione anche per quelle entità che prima non venivano valutate.
         \item
-        I \textbf{valori di belief ottenuti dal sistema di raccomandazione} vengono utilizzati invece come valore di preferenza per le due entità.
+        I \textbf{valori di belief ottenuti dal sistema di raccomandazione} vengono utilizzati come valore di preferenza per le due entità.
 	\end{enumerate}
 	
 	\hypertarget{header-n240}{%
 		\subsection{Sviluppo}\label{header-n240}}
 		
-	Una volta costruiti i vincoli tra le entità utilizzando i valori di belief dei sistemi di raccomandazione e reputazione sarà possibile capire quale è l'associazione migliore che massimizza la preferenza tra le entità convolte.
+	Una volta costruiti i vincoli tra le entità utilizzando i valori di belief dei sistemi di raccomandazione e reputazione sarà possibile capire qual è l'associazione migliore che massimizza la preferenza tra le entità coinvolte.
     \newline
     
-    Per ottenere il risultato su \textit{n} vincoli, basterà combinare le preferenze tra le \textit{n} entità attraverso l'operatore somma, la preferenza migliore sarà quella massima. 
+    Per ottenere il risultato su \textit{n} vincoli, basterà combinare le preferenze tra le \textit{n} entità attraverso l'operatore somma; la preferenza migliore sarà quella massima. 
 
 	
 	\hypertarget{header-n241}{%
 		\subsection{Esempio}\label{header-n241}}
 	
-	Si fornisce qui di seguito un esempio utilizzando gli stessi valori
-	contenuti negli esempi precedente sull'implementazione dell'algoritmo
-	di CasMin ma in questo caso a noi interessa solo il valore di
+	Si fornisce qui di seguito un esempio che utilizza gli stessi valori
+	contenuti negli esempi precedenti, ma in questo caso si utilizza solo il valore di
 	\emph{belief} ottenuto dai sistemi di reputazione (rep) e
-	raccomandazione (rec). I valori di raccomandazione sono riferiti
-	all'utente \emph{User 1} su cui poi si baserà l'esempio per capire
-	secondo l'applicazione dei vincoli soft quale sarebbe l'hotel per lui
-	consigliato.
+	raccomandazione (rec). I valori di raccomandazione fanno riferimento
+	all'utente \emph{User 1}, su cui poi si baserà l'esempio per predire quale sarà l'hotel da raccomandare.
 	
 	\begin{longtable}[]{@{}|l|l|l|@{}}
 		\hline
@@ -789,7 +786,7 @@
 		\caption[Dati risultati da rep. and rec. system]{Dati risultati da rep. and rec. system}
 	\end{longtable}
 	
-	Che rappresentati graficamente come vincoli diventa:
+	Che rappresentati graficamente come vincoli diventano:
 	
 	\begin{figure}[htbp]
 		\centering
@@ -797,7 +794,7 @@
 		\caption{Esempio con vincoli soft}
 	\end{figure}
 	
-	Quindi effettuando la combinazione dei valori i risultati sono:
+	Quindi, effettuando la combinazione dei valori i risultati sono:
 	\newline
 	
 	$(User1 , Hotel 1) = 1 + 0.1 + 0.81 = 1.91$
@@ -807,22 +804,21 @@
 	$(User 1, Hotel 3) = 1 + 0.7 + 0.81 = 2.51$
 	\newline
 	
-	Giunti a questo punto si utilizza l'operatore di ottimizzazione per
-	ottenere il risultato ossia l'\emph{operatore di massimo} (max) ed il
-	risultato ottenuto è la combinazione \emph{User 1 \& Hotel 3}. Che di
+	Giunti a questo punto si utilizza l'operatore di ottimizzazione (\emph{operatore di massimo}) per
+	ottenere il risultato che, in questo caso, è la combinazione \emph{User 1 \& Hotel 3}, che di
 	fatto rappresenta la migliore scelta per l'utente 1.
 	
 	\hypertarget{header-n280}{%
 		\subsection{Conclusioni}\label{header-n280}}
 	
-	A differenza dell'algoritmo di CasMin individuato da Josang la nostra
-	soluzione per scegliere l'elemento di preferenza migliore non da
+	A differenza dell'algoritmo individuato da Josang, la soluzione proposta
+	 non da
 	priorità alle preferenze che hanno un voto ``medio/alto" per entrambi i
-	sistemi (quello di reputazione e quello di raccomandazione) ma bensì
-	ottimizza il soddisfacimento in generale. Quindi in molti casi la
-	soluzione proposta dallo studio di Josang e la nostra riportano i
-	medesimi risultati ma potrebbero esserci casi in cui questo non è
-	verificato. Suggeriamo di consultare la sezione riguardo alla nostra
+	sistemi (quello di reputazione e quello di raccomandazione), bensì
+	ottimizza il soddisfacimento in generale. In molti casi la
+	soluzione proposta dallo studio di Josang e la nostra alternativa riportano i
+	medesimi risultati, ma potrebbero esserci casi in cui questo non accade.
+	Suggeriamo di consultare la sezione riguardo alla nostra
 	implementazione per avere ulteriori riscontri.
 	
 	\hypertarget{header-n284}{%
@@ -890,47 +886,47 @@
 	\subsubsection{Reperimento dell'applicazione web}
 	L'applicazione web è disponibile al seguente link: \url{http://progettoiaunipd.altervista.org}. 
 	\newline
-	Inoltre il sorgente dell'applicativo web sarà reperibile anch'esso nella repository github messo a disposizione: \url{https://github.com/bmxitalia/ProgettoIA}.
+	Inoltre il sorgente dell'applicativo web è reperibile anch'esso nella repository GitHub messa a disposizione: \url{https://github.com/bmxitalia/ProgettoIA}.
 	
 	\subsubsection{Tabelle sorgenti}
 
 	\url{http://progettoiaunipd.altervista.org/sorgenti.php}
 	\newline
 	
-	In questa pagina è possibile visualizzare a video le tabelle sorgenti relative ad hotel ed utenti.
-	Sarà dunque possibile visualizzare tutti gli hotel ed utenti presenti nel dataset utilizzato.
+	In questa pagina è possibile visualizzare a video le tabelle sorgenti relative agli hotel e agli utenti.
+	Sarà dunque possibile visualizzare tutti gli hotel e gli utenti presenti nel dataset utilizzato.
 	
 	\subsubsection{Risultati}
 	
-	In questa serie di pagine è possibile visualizzare tutti i risultati ottenuti attraverso algoritmo di CasMin, vincoli soft e combinazione dei due.
+	In questa serie di pagine è possibile visualizzare tutti i risultati ottenuti attraverso l'algoritmo di CasMin e i vincoli soft.
 	
 	\myparagraph{Combinazione finale}
 	
 	\url{http://progettoiaunipd.altervista.org/final.php}
 	\newline
 	
-	In questa pagina è possibile avere un riepilogo generale di confronto tra i due metodi di unione dei sistemi di reputazione ossia quello di CasMin e quello dei vincoli soft. La tabella presentata mostrerà per ogni utente quale sarebbe l'hotel ``raccomandato" con CasMin e quale sarebbe quello ``raccomandato" utilizzando i vincoli soft.
+	In questa pagina è possibile avere un riepilogo generale di confronto tra i due metodi analizzati, ossia quello di CasMin e quello dei vincoli soft. La tabella presentata mostrerà per ogni utente quale sarebbe l'hotel ``raccomandato" con CasMin e quale sarebbe quello ``raccomandato" utilizzando i vincoli soft.
 	
 	\myparagraph{Algoritmo di CasMin}
 	
 	\url{http://progettoiaunipd.altervista.org/casmin.php}
 	\newline
 	
-	In questa pagina è possibile visualizzare i risultati ottenuti dagli script in python applicando l'algoritmo di CasMin per l'unione dei sistemi di reputazione e raccomandazione, la tabella presentata mostrerà per ogni utente qual è l'hotel che sarebbe ``raccomandato" e con quale valore binomiale.
+	In questa pagina è possibile visualizzare i risultati ottenuti dagli script in python applicando l'algoritmo di CasMin. La tabella presentata mostrerà per ogni utente qual è l'hotel che sarebbe ``raccomandato" e con quale valore binomiale.
 	
 	\myparagraph{Vincoli soft}
 	
 	\url{http://progettoiaunipd.altervista.org/scsp.php}
 	\newline
 	
-	In questa pagina è possibile visualizzare i risultati ottenuti dagli script in python applicando la nostra soluzione ossia quella dell'utilizzo di vincoli soft per l'unione dei sistemi di reputazione e raccomandazione, la tabella presentata mostrerà per ogni utente qual è l'hotel che sarebbe ``raccomandato" e con quale risultato di combinazione.
+	In questa pagina è possibile visualizzare i risultati ottenuti dagli script in python applicando i vincoli soft. La tabella presentata mostrerà per ogni utente qual è l'hotel che sarebbe ``raccomandato" e con quale risultato di combinazione.
 	
 	\subsubsection{Ricerca dettagliata}
 	
 	\url{http://progettoiaunipd.altervista.org/research.php}
 	\newline
 	
-	In questa pagina è possibile fare una ricerca mirata sui risultati ottenuti. Sarà possibile scegliere un utente e visualizzare in dettaglio qual è l'hotel consigliato utilizzando CasMin e quale sarebbe quello consigliato utilizzando i vincoli soft.
+	In questa pagina è possibile fare una ricerca mirata sui risultati ottenuti. Sarà possibile scegliere un utente e visualizzare in dettaglio quale sarebbe l'hotel consigliato utilizzando CasMin e quale sarebbe quello consigliato utilizzando i vincoli soft.
 	
 	
 	\hypertarget{header-n287}{%
